@@ -6,4 +6,4 @@ Site estático do catálogo da loja AbbaJu Mimos (Shopee: https://shopee.com.br/
 - `img/` — logo e fotos dos produtos.
 
 Publicado automaticamente pela Cloudflare Pages a cada commit na branch `main`.
-Os produtos ficam no array `PRODUCTS` dentro do `index.html` e são sincronizados com a Shopee nos dias úteis.
+Os produtos e preços ficam no array `PRODUCTS` dentro do `index.html`, conforme o catálogo Kyte (https://abbajumimos.kyte.site). Pedidos são enviados pelo WhatsApp.

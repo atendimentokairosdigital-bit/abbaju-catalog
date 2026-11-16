@@ -391,6 +391,53 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
 .wz-done-msg{text-align:center;background:var(--gold-soft);border-radius:14px;padding:.8rem;font-weight:700}
 .wz-final .btn-wpp{width:100%;font-size:1.05rem;padding:1.05rem}
 
+
+/* Idade */
+.agebar{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem;margin:0 0 1rem}
+.agebar-l{font-weight:800;color:var(--ink-soft);font-size:.88rem;margin-right:.2rem}
+.chip.age{background:var(--gold-soft);border-color:#EBD9B5}
+.chip.age.active{background:linear-gradient(135deg,#D3AE68,var(--gold-dark));border-color:transparent;color:#fff}
+#natal .agebar{margin-top:.4rem}
+.age-tag{display:inline-block;align-self:flex-start;font-size:.72rem;font-weight:800;color:var(--lilac-dark);background:var(--lilac-soft);border-radius:999px;padding:.2rem .6rem}
+.empty{grid-column:1/-1;text-align:center;color:var(--ink-soft);font-weight:700;padding:2rem 1rem;background:#fff;border:1px dashed var(--line);border-radius:18px}
+.empty a{color:var(--lilac-dark);text-decoration:underline}
+.price s{font-family:'Nunito',sans-serif;font-size:.85rem;font-weight:700;color:var(--ink-soft);margin-right:.45rem}
+.btn-buy{background:linear-gradient(135deg,#8E6CB8,var(--lilac-dark));color:#fff;box-shadow:0 10px 22px -12px var(--lilac-dark)}
+
+/* Popup de compra */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:1rem}
+.modal[hidden]{display:none}
+.modal-bg{position:absolute;inset:0;background:rgba(58,40,70,.45);backdrop-filter:blur(4px);animation:fadeIn .25s}
+@keyframes fadeIn{from{opacity:0}}
+.modal-box{position:relative;width:min(440px,100%);padding:3.4rem 1.6rem 1.6rem;background:linear-gradient(140deg,rgba(255,255,255,.96),rgba(255,255,255,.88));animation:panelIn .4s cubic-bezier(.2,.9,.25,1)}
+.modal-x{position:absolute;top:.7rem;right:.7rem;z-index:4;width:36px;height:36px;border-radius:50%;border:0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer;font-size:1rem;color:var(--ink)}
+.bm-prod{position:relative;z-index:3;display:flex;gap:1rem;align-items:center;margin-bottom:1.2rem}
+.bm-prod img{width:92px;height:92px;border-radius:16px;object-fit:cover;flex:none;border:3px solid #fff;box-shadow:var(--shadow)}
+.bm-prod h3{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.05rem;margin:.3rem 0 .2rem;line-height:1.3}
+#bmForm{position:relative;z-index:3;display:grid;gap:.6rem}
+#bmForm label{font-weight:800;font-size:.9rem}
+.bm-row{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin:.3rem 0 .6rem}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;background:#fff;margin-top:.35rem}
+.qty button{width:40px;height:40px;border:0;background:none;font-size:1.2rem;font-weight:800;color:var(--lilac-dark);cursor:pointer}
+.qty span{min-width:28px;text-align:center;font-weight:800}
+.bm-total{text-align:right}
+.bm-total small{display:block;color:var(--ink-soft);font-weight:700;font-size:.8rem}
+.bm-total b{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold-dark)}
+#bmSend{width:100%;padding:1rem}
+#bmSend.off{opacity:.55;filter:grayscale(.3)}
+.bm-hint{text-align:center;font-size:.85rem;color:var(--ink-soft);font-weight:700;min-height:1.2em}
+body.lock{overflow:hidden}
+
+/* WhatsApp flutuante */
+.wa-float{position:fixed;right:20px;bottom:24px;z-index:70;width:60px;height:60px;border-radius:50%;background:var(--wpp);display:grid;place-items:center;box-shadow:0 12px 26px -8px rgba(37,211,102,.7);transition:transform .2s}
+.wa-float svg{width:32px;height:32px}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wpp);z-index:-1;animation:waPulse 2.2s ease-out infinite}
+@keyframes waPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+.wa-float:hover{transform:scale(1.08)}
+.wa-tip{position:absolute;right:72px;white-space:nowrap;background:#fff;color:var(--ink);font-weight:800;font-size:.85rem;padding:.5rem .8rem;border-radius:12px;box-shadow:var(--shadow);opacity:0;transform:translateX(8px);transition:.25s;pointer-events:none}
+.wa-float:hover .wa-tip{opacity:1;transform:none}
+@media(max-width:780px){.wa-float{bottom:84px;right:14px;width:54px;height:54px}}
+
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.title .w,.reveal{opacity:1;transform:none;filter:none}.swash path{stroke-dashoffset:0}}
 </style>
 </head>
@@ -410,9 +457,9 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
 <div class="announce" aria-label="Avisos da loja">
   <div class="marquee" id="marquee">
     <span>🎄 Coleção de Natal disponível</span><span>✦</span>
-    <span>🛍️ Compre com segurança pela Shopee</span><span>✦</span>
+    <span>💬 Peça direto pelo WhatsApp</span><span>✦</span>
     <span>🎀 Laços personalizados por encomenda</span><span>✦</span>
-    <span>⭐ Nota 5.0 na Shopee</span><span>✦</span>
+    <span>🎁 Até 46% off na Coleção de Natal</span><span>✦</span>
   </div>
 </div>
 
@@ -442,19 +489,19 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
       <div>
         <span class="kicker">feitos com amor</span>
         <h1 class="title">Mimos para deixar sua pequena ainda mais <em class="swash">encantadora</em></h1>
-        <p class="lead reveal" style="--d:3">Laços, faixas e tiaras para bebês e meninas, do dia a dia às festas. Escolha aqui, compre com segurança pela Shopee ou encomende um laço do jeitinho que você imaginou.</p>
+        <p class="lead reveal" style="--d:3">Laços, faixas e tiaras para bebês e meninas, do dia a dia às festas. Escolha aqui e peça direto pelo WhatsApp, ou encomende um laço do jeitinho que você imaginou.</p>
         <div class="hero-ctas reveal" style="--d:4">
           <a class="btn btn-gold" href="#natal">Ver coleção de Natal</a>
           <a class="btn btn-ghost" href="#encomendar">Quero personalizar ✨</a>
         </div>
         <div class="hero-proof reveal" style="--d:5">
-          <span>⭐ Nota 5.0 na Shopee</span><span>🛡️ Compra protegida</span><span>🎀 Feito à mão</span>
+          <span>💬 Pedido pelo WhatsApp</span><span>🎀 Feito à mão</span><span>👶 De 0 a 12 anos</span>
         </div>
       </div>
       <div class="collage">
-        <figure class="c1"><img src="img/p12.jpg" alt="Menina usando laço rosa com pérolas"></figure>
-        <figure class="c2"><img src="img/p06.jpg" alt="Bebê com faixa vermelha natalina"></figure>
-        <figure class="c3"><img src="img/p07.jpg" alt="Laços gravatinha em várias cores"></figure>
+        <figure class="c1"><img src="img/k18.jpg" alt="Menina usando laço Hadassa"></figure>
+        <figure class="c2"><img src="img/k20.jpg" alt="Laços vermelhos do kit Débora"></figure>
+        <figure class="c3"><img src="img/k26.jpg" alt="Pares de laço fofura em várias cores"></figure>
         <span class="heart h1">💜</span><span class="heart h2">🎀</span><span class="heart h3">✨</span>
         <a class="tag" href="#encomendar">💜 <b>Personalize</b> do seu jeito</a>
       </div>
@@ -464,7 +511,7 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
   <!-- BENEFÍCIOS -->
   <div class="benefits">
     <div class="wrap benefits-grid">
-      <div class="bnf reveal" style="--d:0"><span class="bnf-ico">🛍️</span><div>Compra pela Shopee<small>Pagamento protegido até chegar</small></div></div>
+      <div class="bnf reveal" style="--d:0"><span class="bnf-ico">💬</span><div>Pedido pelo WhatsApp<small>Atendimento direto com a gente</small></div></div>
       <div class="bnf reveal" style="--d:1"><span class="bnf-ico">🤲</span><div>Feito à mão<small>Acabamento delicado</small></div></div>
       <div class="bnf reveal" style="--d:2"><span class="bnf-ico">🎨</span><div>Do seu jeito<small>Cor, aplique e nome</small></div></div>
       <div class="bnf reveal" style="--d:3"><span class="bnf-ico">🎁</span><div>Pronto para presentear<small>Lindo na cartela</small></div></div>
@@ -479,13 +526,14 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
         <div>
           <span class="kicker">o primeiro Natal dela</span>
           <h2 class="title">Coleção de <em class="swash">Natal</em> 🎄</h2>
-          <p class="reveal" style="--d:3">Laços com ursinho, estrela de Belém, renda e biscoito natalino para as fotos mais lindas da ceia. Quantidades limitadas: garanta o seu antes que esgote.</p>
+          <p class="reveal" style="--d:3">Laços com ursinho, estrela de Belém, renda e biscoito natalino para as fotos mais lindas da ceia. Com descontos de até 46%: garanta o seu antes que esgote.</p>
           <a class="btn reveal" style="--d:4" href="#natal-grid">Ver os laços de Natal ↓</a>
         </div>
         <div class="xmas-thumbs">
-          <img src="img/p09.jpg" alt=""><img src="img/p11.jpg" alt=""><img src="img/p10.jpg" alt="">
+          <img src="img/k31.jpg" alt=""><img src="img/k38.jpg" alt=""><img src="img/k34.jpg" alt="">
         </div>
       </div>
+      <div class="agebar reveal"></div>
       <div class="grid" id="natal-grid"></div>
     </div>
   </section>
@@ -497,8 +545,9 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
         <span class="spark">✦</span><span class="spark s2">✦</span>
         <span class="kicker">para todos os dias</span>
         <h2 class="title">Mais <em class="swash">mimos</em> para ela</h2>
-        <p class="reveal" style="--d:3">Laços para a escola, para as festinhas e para guardar tudo organizado. Toque em <strong>Comprar na Shopee</strong> ou personalize do seu jeito.</p>
+        <p class="reveal" style="--d:3">Laços para a escola, para as festinhas e para guardar tudo organizado. Toque em <strong>Comprar</strong> para pedir pelo WhatsApp ou personalize do seu jeito.</p>
       </div>
+      <div class="agebar reveal"></div>
       <div class="filters reveal" id="filters"></div>
       <div class="grid" id="grid"></div>
     </div>
@@ -544,7 +593,7 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
         <h2 class="title">Perguntas <em class="swash">frequentes</em></h2>
       </div>
       <div class="faq">
-        <details class="reveal" style="--d:0"><summary>Por que a compra é feita na Shopee?</summary><p>Para você comprar tranquila: o pagamento fica protegido pela Shopee até o pedido chegar, e você ainda aproveita cupons e frete da plataforma.</p></details>
+        <details class="reveal" style="--d:0"><summary>Como faço meu pedido?</summary><p>Toque em “Comprar” no laço que você gostou, coloque seu nome e a quantidade e envie pelo WhatsApp. A mensagem já vai pronta, e a gente combina com você pagamento e entrega.</p></details>
         <details class="reveal" style="--d:1"><summary>Posso pedir um laço que não está no catálogo?</summary><p>Pode, sim! Use o “Monte seu laço” ou descreva sua ideia nas observações. A gente responde pelo WhatsApp.</p></details>
         <details class="reveal" style="--d:2"><summary>Quanto custa e quanto tempo leva um laço personalizado?</summary><p>Depende do modelo, do aplique e da quantidade. Assim que você enviar o pedido, passamos valor e prazo certinhos antes de começar.</p></details>
         <details class="reveal" style="--d:3"><summary>Qual laço é melhor para bebê?</summary><p>Para os bem pequenininhos, as faixas macias são as mais confortáveis. Conte a idade no pedido que a gente ajuda a escolher.</p></details>
@@ -558,9 +607,9 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
       <div class="band">
         <span class="kicker">com carinho</span>
         <h2 class="title">Um laço lindo, uma compra <em>tranquila</em> 💜</h2>
-        <p>Escolha no catálogo e finalize na Shopee, ou crie um laço exclusivo para ela.</p>
+        <p>Escolha no catálogo e peça pelo WhatsApp, ou crie um laço exclusivo para ela.</p>
         <div class="band-ctas">
-          <a class="btn btn-ghost" id="bandShopee" href="#" target="_blank" rel="noopener">Visitar a loja na Shopee</a>
+          <a class="btn btn-ghost" id="bandWpp" href="#" target="_blank" rel="noopener">💬 Falar no WhatsApp</a>
           <a class="btn btn-ghost" href="#encomendar">Personalizar o meu</a>
         </div>
       </div>
@@ -643,8 +692,37 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
 
 <footer>
   <img src="img/logo.jpg" alt="AbbaJu Mimos · Papelaria criativa &amp; laços">
-  <p>Compras finalizadas com segurança pela Shopee · Encomendas personalizadas pelo WhatsApp</p>
+  <p>Pedidos e encomendas pelo WhatsApp (21) 96594-7720</p>
 </footer>
+
+<div class="modal" id="buyModal" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box gcard" role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+    <div class="drip-top" data-seed="77"></div>
+    <button class="modal-x" data-close aria-label="Fechar">✕</button>
+    <div class="bm-prod">
+      <img id="bmImg" alt="">
+      <div><span class="age-tag" id="bmAge"></span><h3 id="bmTitle"></h3><div class="price" id="bmPrice"></div></div>
+    </div>
+    <form id="bmForm" novalidate>
+      <label for="bmName">Seu nome</label>
+      <input type="text" id="bmName" placeholder="Ex.: Juliana" maxlength="40" autocomplete="name">
+      <div class="bm-row">
+        <div><label>Quantidade</label>
+          <div class="qty"><button type="button" data-q="-1" aria-label="Diminuir">−</button><span id="bmQty">1</span><button type="button" data-q="1" aria-label="Aumentar">+</button></div>
+        </div>
+        <div class="bm-total"><small>Total</small><b id="bmTotal"></b></div>
+      </div>
+      <a class="btn btn-wpp" id="bmSend" href="#" target="_blank" rel="noopener">💬 Enviar pedido pelo WhatsApp</a>
+      <p class="bm-hint" id="bmHint">Coloque seu nome para enviar o pedido 💜</p>
+    </form>
+  </div>
+</div>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#fff" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.8 2 6.8L3 29l6.8-2.2c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-2 0-4-.6-5.6-1.6l-.4-.2-4 1.3 1.3-3.9-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.7C5.3 9.8 10.1 5 16 5s10.7 4.8 10.7 10.6S21.9 26.1 16 26.1zm5.9-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+  <span class="wa-tip">Fale com a gente</span>
+</a>
 
 <div class="mbar">
   <a class="btn btn-shopee" id="mbarShopee" href="#" target="_blank" rel="noopener">Loja na Shopee</a>
@@ -657,24 +735,52 @@ const STORE = {
   shopeeUrl: "https://shopee.com.br/joyce20171",
   whatsapp: "5521965947720"   // (21) 96594-7720
 };
-const S = "https://shopee.com.br/";
+const K = "https://abbajumimos.kyte.site/pt-BR/p/";
+/* Produtos e preços conforme o catálogo Kyte (https://abbajumimos.kyte.site) */
 const PRODUCTS = [
-  {id:"p11", name:"Kit laço infantil vermelho com urso de pelúcia e estrelas douradas", price:"45,90", cats:["Natal","Kits"], tag:"Mais fofo", desc:"Ursinho de pelúcia e estrelinhas: o mais fofo da ceia.", model:"Kit de laços", link:S+"Kit-la%C3%A7o-de-cabelo-infantil-vermelho-com-urso-de-pel%C3%BAcia-e-estrelas-douradas-i.211842170.58272150902"},
-  {id:"p10", name:"Laço infantil Natal Estrela de Belém", price:"38,90", cats:["Natal","Kits"], desc:"Par de laços verdes com estrela dourada.", model:"Par de laços", link:S+"La%C3%A7o-infantil-Natal-Estrela-de-Bel%C3%A9m-i.211842170.58272151240"},
-  {id:"p03", name:"Laço Natal Estrela de Belém", price:"33,90", cats:["Natal","Kits"], tag:"Já vendeu", desc:"Par vermelho com estrela dourada, clássico de Natal.", model:"Par de laços", link:S+"La%C3%A7o-Natal-estrela-de-Bel%C3%A9m-i.211842170.58222529301"},
-  {id:"p13", name:"Par de laço infantil Natal ursinho cravejado", price:"39,90", cats:["Natal","Kits"], desc:"Ursinhos com brilho sobre laço vermelho e creme.", model:"Par de laços", link:S+"Par-de-la%C3%A7o-infantil-Natal-ursinho-Cravejado-i.211842170.58222121693"},
-  {id:"p04", name:"Arco 2 em 1 infantil Natal ursinho", price:"39,90", cats:["Natal"], desc:"Laço creme com ursinho que vira presilha ou tiara.", model:"Tiara / arco 2 em 1", link:S+"Arco-2-em-1-infantil-Natal-ursinho-i.211842170.58222493719"},
-  {id:"p06", name:"Faixa infantil vermelha com laço grande e biscoito natalino", price:"31,28", cats:["Natal","Bebês"], tag:"Para bebês", desc:"Faixa confortável com aplique de biscoitinho.", model:"Faixa para bebê", link:S+"Faixa-de-Cabelo-Infantil-Vermelho-com-La%C3%A7o-Grande-e-Presilha-de-Biscoito-Natalino-i.211842170.58222919726"},
-  {id:"p09", name:"Faixa de bebê com laço grande vermelho e renda", price:"28,88", cats:["Natal","Bebês"], tag:"Para bebês", desc:"Renda delicada para o primeiro Natal dela.", model:"Faixa para bebê", link:S+"Faixa-de-Beb%C3%AA-com-La%C3%A7o-Grande-Vermelho-e-Renda-para-Menina-Infantil-Natal-i.211842170.58222923107"},
-  {id:"p14", name:"Faixa de cabelo bebê com laço de ursinho Natal 2026", price:"27,53", cats:["Natal","Bebês"], soldout:true, desc:"Faixa com laço e ursinho para o Natal 2026.", model:"Faixa para bebê", link:S+"faixa-de-cabelo-beb%C3%AA-com-la%C3%A7o-de-ursinho-Natal-2026-i.211842170.58222919912"},
-  {id:"p12", name:"Laço de cabelo luxo com pérolas cor rosa", price:"35,00", cats:["Festa & Luxo"], tag:"Queridinho", desc:"Laço grande com pérolas, lindo para festas e ensaios.", model:"Laço com pérolas", link:S+"La%C3%A7o-de-cabelo-luxo-com-p%C3%A9rolas-cor-rosa-i.211842170.58268193598"},
-  {id:"p01", name:"Laço infantil rosa com pérolas e presilha tiara 2 em 1", price:"39,18", cats:["Festa & Luxo"], desc:"Use como presilha ou na tiara: dois looks em um.", model:"Laço com pérolas", link:S+"La%C3%A7o-de-Cabelo-infantil-Rosa-com-P%C3%A9rolas-e-Presilha-Tiara-2-em1-i.211842170.58272656775"},
-  {id:"p02", name:"Laço de cabelo rosa com crisol brilhante", price:"25,98", cats:["Festa & Luxo"], desc:"Brilho delicado para aniversários e festinhas.", model:"Laço com brilho", link:S+"La%C3%A7o-de-Cabelo-Rosa-com-crisol-Brilhante-para-Crian%C3%A7a-i.211842170.58272657167"},
-  {id:"p07", name:"Par de laços gravatinha para bebês e crianças", price:"16,90", cats:["Dia a dia","Kits"], tag:"Melhor preço", desc:"Várias cores para combinar com cada look.", model:"Laço gravatinha", link:S+"Par-de-la%C3%A7os-gravatinha-La%C3%A7o-para-beb%C3%AAs-e-crian%C3%A7as-i.211842170.58270085641"},
-  {id:"p08", name:"Kit 2 laços de cabelo infantil menina", price:"25,99", cats:["Dia a dia","Kits"], desc:"Laços de gorgurão em cores alegres para a escola.", model:"Kit de laços", link:S+"Kit-2-la%C3%A7os-de-cabelo-infantil-Menina-i.211842170.58220131430"},
-  {id:"p05", name:"Organizador de laços infantil", price:"16,90", cats:["Acessórios"], desc:"Deixa os laços à vista e decora o quartinho.", noCustom:true, link:S+"Organizador-de-la%C3%A7os-infantil-Crian%C3%A7a-i.211842170.58272861817"},
+  {id:"k28", name:"Arco 2 em 1 ursinho Natal", price:"33,17", old:"55,00", cats:["Natal", "Tiaras"], ages:["crianca"], model:"Tiara / arco 2 em 1", link:K+"arco-2-em-1-ursinho-natal/1793553266848-AKCVn"},
+  {id:"k29", name:"Arco vermelho ursinho Natal", price:"33,17", old:"55,90", cats:["Natal", "Tiaras"], ages:["crianca"], model:"Tiara / arco 2 em 1", link:K+"arco-vermelho-ursinho-natal/1793553332195-AKCVn"},
+  {id:"k30", name:"Laço baby meia ursinho branco e vermelho", price:"18,78", old:"34,90", cats:["Natal"], ages:["bebe"], model:"Faixa para bebê", link:K+"laco-baby-meia-ursinho-branco-e-vermelho/1793553878745-AKCVn"},
+  {id:"k31", name:"Laço bico de pato ursinho Natal", price:"33,75", old:"43,59", cats:["Natal"], ages:["crianca"], model:"Par de laços", link:K+"laco-bico-de-pato-ursinho-natal/1793553469465-AKCVn"},
+  {id:"k32", name:"Laço biscoitinho natalino", price:"17,90", cats:["Natal"], ages:["crianca"], model:"Laço tradicional", link:K+"laco-biscoitinho-natalino/1793553910276-AKCVn"},
+  {id:"k33", name:"Laço chuva de pérolas", price:"35,00", old:"47,90", cats:["Natal"], ages:["crianca"], model:"Laço com pérolas", link:K+"laco-chuva-de-perolas/1793553791829-AKCVn"},
+  {id:"k34", name:"Laço estrela de Belém", price:"26,90", cats:["Natal"], ages:["crianca"], model:"Par de laços", link:K+"laco-estrela-de-belem/1793553552344-AKCVn"},
+  {id:"k35", name:"Laço estrelinhas de Belém", price:"35,00", old:"47,90", cats:["Natal"], ages:["crianca"], model:"Par de laços", link:K+"laco-estrelinhas-de-belem/1793553706137-AKCVn"},
+  {id:"k36", name:"Laço Natal meia rendado 0 a 12 meses", price:"19,90", old:"34,90", cats:["Natal"], ages:["bebe"], model:"Faixa para bebê", link:K+"laco-natal-meia-rendado-0-a-12-meses/1793553951690-AKCVn"},
+  {id:"k37", name:"Par de laços Ano Novo/Natal", price:"22,90", cats:["Natal", "Pares e kits"], ages:["crianca"], model:"Par de laços", link:K+"par-de-lacos-ano-novo-natal/1794021699617-AKCVn"},
+  {id:"k38", name:"Par ursinho", price:"37,89", cats:["Natal", "Pares e kits"], ages:["crianca"], model:"Par de laços", link:K+"par-ursinho/1793553613091-AKCVn"},
+  {id:"k01", name:"Arco com laço removível", price:"24,90", cats:["Tiaras"], ages:["crianca"], model:"Tiara / arco 2 em 1", link:K+"arco-com-laco-removivel/1792025758954-AKCVn"},
+  {id:"k02", name:"Kit Tiara Candy", price:"39,90", cats:["Tiaras", "Pares e kits"], ages:["crianca"], model:"Tiara / arco 2 em 1", link:K+"kit-tiara-candy/1792712299256-AKCVn"},
+  {id:"k03", name:"Tiara 2 em 1", price:"33,00", cats:["Tiaras"], ages:["crianca"], model:"Tiara / arco 2 em 1", link:K+"tiara-2-em-1/1794273978924-AKCVn"},
+  {id:"k04", name:"Tiara coração", price:"18,64", cats:["Tiaras"], ages:["crianca"], model:"Tiara / arco 2 em 1", link:K+"tiara-coracao/1791670421418-AKCVn"},
+  {id:"k05", name:"Tiara pérola Candy", price:"24,90", cats:["Tiaras"], ages:["crianca"], model:"Tiara / arco 2 em 1", link:K+"tiara-perola-candy/1792446670610-AKCVn"},
+  {id:"k06", name:"Laço baby borboleta meia", price:"18,90", cats:["Laços"], ages:["bebe"], model:"Faixa para bebê", link:K+"laco-baby-borboleta-meia/1792025441167-AKCVn"},
+  {id:"k07", name:"Laço baby coração meia", price:"24,90", cats:["Laços"], ages:["bebe"], model:"Faixa para bebê", link:K+"laco-baby-coracao-meia/1792025592010-AKCVn"},
+  {id:"k08", name:"Laço baby figurinha", price:"14,90", cats:["Laços"], ages:["bebe"], model:"Faixa para bebê", link:K+"laco-baby-figurinha/1792025469265-AKCVn"},
+  {id:"k09", name:"Laço baby meia minimalista", price:"20,18", cats:["Laços"], ages:["bebe"], model:"Faixa para bebê", link:K+"laco-baby-meia-minimialista/1792025509931-AKCVn"},
+  {id:"k10", name:"Linha baby laço meia branco ou rosa", price:"26,90", cats:["Laços"], ages:["bebe"], model:"Faixa para bebê", link:K+"linha-baby-laco-meia-branco-ou-rosa/1792025398087-AKCVn"},
+  {id:"k11", name:"Laço abelhinha", price:"24,00", cats:["Laços"], ages:["crianca"], model:"Laço tradicional", link:K+"laco-abelinha/1790559166661-AKCVn"},
+  {id:"k12", name:"Laço Aurora creme", price:"24,90", cats:["Laços"], ages:["crianca"], model:"Laço tradicional", link:K+"laco-aurora-creme-copia/1791167065849-AKCVn"},
+  {id:"k13", name:"Laço Brilhosa", price:"17,90", cats:["Laços"], ages:["crianca"], model:"Laço com brilho", link:K+"laco-brilhosa/1794261894641-AKCVn"},
+  {id:"k14", name:"Laço Eloah", price:"8,90", cats:["Laços"], ages:["crianca"], model:"Laço tradicional", link:K+"laco-eloah/1791241976858-AKCVn"},
+  {id:"k15", name:"Laço Filha da Promessa", price:"14,90", cats:["Laços"], ages:["crianca"], model:"Laço tradicional", link:K+"laco-filha-da-promessa/1791241842516-AKCVn"},
+  {id:"k16", name:"Laço florzinha com pérola", price:"18,07", cats:["Laços"], ages:["crianca"], model:"Laço com pérolas", link:K+"laco-florzinha-com-perola/1792025663942-AKCVn"},
+  {id:"k17", name:"Laço Hadassa branco com strass", price:"35,00", cats:["Laços"], ages:["crianca"], model:"Laço com brilho", link:K+"laco-hadassa-cor-branca-com-strass/1790561440079-AKCVn"},
+  {id:"k18", name:"Laço Hadassa midi", price:"24,90", cats:["Laços"], ages:["crianca"], model:"Laço tradicional", link:K+"laco-hadassa-midi/1792025253860-AKCVn"},
+  {id:"k19", name:"Laço Hadassa rosa", price:"35,90", cats:["Laços"], ages:["crianca"], model:"Laço com pérolas", link:K+"laco-hadassa-rosa/1790559362575e77b93-AKCV"},
+  {id:"k20", name:"Laço kit Débora", price:"55,90", cats:["Laços", "Pares e kits"], ages:["crianca"], model:"Kit de laços", link:K+"laco-kit-debora/1790559230525-AKCVn"},
+  {id:"k21", name:"Laço preto no básico com coração", price:"13,90", cats:["Laços"], ages:["crianca"], model:"Laço gravatinha", link:K+"laco-preto-no-basico-com-coracao/1792025826483-AKCVn"},
+  {id:"k22", name:"Laço Realeza", price:"24,90", cats:["Laços"], ages:["crianca"], model:"Laço com pérolas", link:K+"laco-realeza/1794261779664-AKCVn"},
+  {id:"k23", name:"Laço vermelho", price:"14,90", cats:["Laços"], ages:["crianca"], model:"Laço tradicional", link:K+"laco-vermelho/1794586978947-AKCVn"},
+  {id:"k24", name:"Par laço gravatinha duplo perolado", price:"14,90", cats:["Laços", "Pares e kits"], ages:["crianca"], model:"Laço gravatinha", link:K+"paco-gravatinha-duplo-perolado-par/1792025352290-AKCVn"},
+  {id:"k25", name:"Par Doramerinha", price:"17,90", cats:["Laços", "Pares e kits"], ages:["crianca"], model:"Par de laços", link:K+"par-doramerinha/1792712336823-AKCVn"},
+  {id:"k26", name:"Par laço fofura", price:"10,90", cats:["Laços", "Pares e kits"], ages:["crianca"], model:"Par de laços", link:K+"par-laco-fofura/1791389190472-AKCVn"},
+  {id:"k27", name:"Par laço vintage", price:"24,90", cats:["Laços", "Pares e kits"], ages:["crianca"], model:"Par de laços", link:K+"par-laco-vintage/1792712372218-AKCVn"},
+  {id:"k39", name:"Expositor de laços", price:"12,90", cats:["Acessórios"], ages:["bebe", "crianca"], noCustom:true, link:K+"expositor-de-lacos/1794435444651-AKCVn"},
 ];
-const FILTERS = ["Todos","Dia a dia","Festa & Luxo","Kits","Acessórios"];
+const FILTERS = ["Todos","Laços","Tiaras","Pares e kits","Acessórios"];
+const AGES = [["todas","Todas as idades"],["bebe","👶 Bebês · 0 a 12 meses"],["crianca","🎀 Crianças · até 12 anos"]];
+
 
 const MODELS = ["Laço gravatinha","Laço tradicional","Laço com pérolas","Laço com brilho","Faixa para bebê","Tiara / arco 2 em 1","Par de laços","Kit de laços"];
 const COLORS = [["Rosa","#F2A7BE"],["Rosa claro","#F7CFDA"],["Pink","#D83C7A"],["Vermelho","#C8232F"],["Lilás","#C3A6E0"],["Lavanda","#D9CBF0"],["Roxo","#7E4FB5"],["Uva","#5B2A7A"],["Azul bebê","#A9CCEB"],["Azul céu","#6FB3E0"],["Azul turquesa","#2FB5B8"],["Azul royal","#2F5BB7"],["Azul marinho","#1F2E5A"],["Verde água","#9ED9C3"],["Verde menta","#B5E3C4"],["Verde bandeira","#2E8B57"],["Verde oliva","#5E7A3A"],["Verde musgo","#3E5A35"],["Amarelo","#F5CD3D"],["Salmão","#F8B497"],["Nude","#E8C9B0"],["Off-white","#F6EFE3"],["Dourado","#CFA75A"],["Preto","#2B2629"]];
@@ -687,7 +793,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 function shade(hex,p){let n=parseInt(hex.slice(1),16),r=n>>16,g=(n>>8)&255,b=n&255;const f=v=>Math.max(0,Math.min(255,Math.round(v+(p/100)*(p<0?v:255-v))));return "#"+[f(r),f(g),f(b)].map(v=>v.toString(16).padStart(2,"0")).join("")}
 
-["#navShopee","#bandShopee","#mbarShopee"].forEach(id=>$(id).href=STORE.shopeeUrl);
+["#navShopee","#mbarShopee"].forEach(id=>$(id).href=STORE.shopeeUrl);
 
 /* Menu */
 const hdr=$("#hdr");
@@ -702,31 +808,36 @@ $("#marquee").innerHTML+= $("#marquee").innerHTML;
 $("#snow").innerHTML=Array.from({length:22},(_,i)=>`<i style="left:${(i*37)%100}%;font-size:${.5+(i%4)*.25}rem;animation-duration:${7+(i%5)*2}s;animation-delay:-${(i*1.3)%9}s">${i%3?"❄":"✦"}</i>`).join("");
 
 /* Cards */
+const pnum=v=>parseFloat(v.replace(".","").replace(",","."));
+const brl=n=>n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const AGE_TXT={bebe:"👶 0 a 12 meses",crianca:"🎀 até 12 anos"};
 function card(p,i){
-  const left = p.soldout?`<span class="badge off">Esgotado</span>`
-    : p.tag?`<span class="badge ${p.cats.includes("Natal")?"xm":""}">${esc(p.tag)}</span>`
-    : p.cats.includes("Natal")?`<span class="badge xm">🎄 Natal</span>`:"<span></span>";
+  const off=p.old?Math.round((1-pnum(p.price)/pnum(p.old))*100):0;
+  const left = off?`<span class="badge xm">-${off}%</span>` : p.cats.includes("Natal")?`<span class="badge xm">🎄 Natal</span>`:"<span></span>";
   const right = p.noCustom?"":`<span class="badge gold">Personalizável</span>`;
-  const actions = p.soldout
-    ? `<button class="btn btn-primary" data-custom="${esc(p.name)}" data-model="${esc(p.model||"")}">🎀 Encomendar parecido</button>
-       <a class="btn btn-ghost" href="${p.link}" target="_blank" rel="noopener">Ver na Shopee</a>`
-    : `<a class="btn btn-shopee" href="${p.link}" target="_blank" rel="noopener">Comprar na Shopee</a>
-       ${p.noCustom?"":`<button class="btn btn-ghost" data-custom="${esc(p.name)}" data-model="${esc(p.model||"")}">🎀 Quero personalizado</button>`}`;
-  return `<article class="card reveal ${p.soldout?"soldout":""}" style="--d:${i%4}">
+  const ages = p.ages.length>1?"Para todas as idades":p.ages.map(a=>AGE_TXT[a]).join(" · ");
+  return `<article class="card reveal" style="--d:${i%4}">
     <div class="card-img"><img src="img/${p.id}.jpg" alt="${esc(p.name)}" loading="lazy"><div class="badges">${left}${right}</div></div>
     <div class="card-body">
-      <h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>
-      <div class="price"><small>R$</small>${p.price}</div>
-      <div class="card-actions">${actions}</div>
+      <span class="age-tag">${ages}</span>
+      <h3>${esc(p.name)}</h3>
+      <div class="price">${p.old?`<s>R$ ${p.old}</s>`:""}<small>R$</small>${p.price}</div>
+      <div class="card-actions">
+        <button class="btn btn-buy" data-buy="${p.id}">🛍️ Comprar</button>
+        ${p.noCustom?"":`<button class="btn btn-ghost" data-custom="${esc(p.name)}" data-model="${esc(p.model||"")}">🎀 Quero personalizado</button>`}
+      </div>
     </div></article>`;
 }
-$("#natal-grid").innerHTML = PRODUCTS.filter(p=>p.cats.includes("Natal")).map(card).join("");
-
-let current="Todos";
+let current="Todos", age="todas";
+const byAge=p=>age==="todas"||p.ages.includes(age);
+const empty=`<p class="empty">Nenhum laço para essa idade nesta seção. Que tal <a href="#encomendar">encomendar um personalizado</a>? 💜</p>`;
+function renderAges(){document.querySelectorAll(".agebar").forEach(el=>el.innerHTML=`<span class="agebar-l">Filtrar por idade:</span>`+AGES.map(([k,t])=>`<button class="chip age ${k===age?"active":""}" data-age="${k}">${t}</button>`).join(""))}
+function renderNatal(){const l=PRODUCTS.filter(p=>p.cats.includes("Natal")&&byAge(p));$("#natal-grid").innerHTML=l.length?l.map(card).join(""):empty;observe($("#natal-grid"))}
 const others = PRODUCTS.filter(p=>!p.cats.includes("Natal"));
 function renderFilters(){$("#filters").innerHTML=FILTERS.map(c=>`<button class="chip ${c===current?"active":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("")}
-function renderGrid(){$("#grid").innerHTML=others.filter(p=>current==="Todos"||p.cats.includes(current)).map(card).join("");observe($("#grid"))}
+function renderGrid(){const l=others.filter(p=>(current==="Todos"||p.cats.includes(current))&&byAge(p));$("#grid").innerHTML=l.length?l.map(card).join(""):empty;observe($("#grid"))}
 $("#filters").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;current=b.dataset.c;renderFilters();renderGrid()});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-age]");if(!b)return;age=b.dataset.age;renderAges();renderNatal();renderGrid()});
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-custom]");if(!b)return;
   const r=document.querySelector(`input[name=model][value="${b.dataset.model}"]`);if(r){r.checked=true;wzNextFrom(0)}
@@ -748,7 +859,7 @@ document.querySelectorAll(".title").forEach(t=>{
 /* Aparecer ao rolar */
 const io = "IntersectionObserver" in window ? new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15,rootMargin:"0px 0px -40px 0px"}) : null;
 function observe(root=document){root.querySelectorAll(".title:not(.in),.reveal:not(.in)").forEach(el=>io?io.observe(el):el.classList.add("in"))}
-renderFilters();renderGrid();observe();
+renderAges();renderNatal();renderFilters();renderGrid();observe();
 
 /* Monte seu laço */
 function radios(id,name,list){$(id).innerHTML=list.map((v,i)=>`<label class="opt"><input type="radio" name="${name}" value="${esc(v)}"><span>${esc(v)}</span></label>`).join("")}
@@ -865,10 +976,10 @@ function addDrips(root=document){root.querySelectorAll(".drip-top:empty").forEac
 
 /* ===== Etapas clicáveis ===== */
 const BUY_STEPS=[
-  {ico:"🔎",t:"Escolha o laço",s:"Navegue pelo catálogo",h:"Encontre o laço favorito dela",p:"Veja as fotos, compare os modelos e use os filtros para achar o laço certo para cada ocasião: escola, festinha, ensaio ou a ceia de Natal.",li:["Filtre por Natal, Dia a dia, Festa & Luxo, Kits","Todos os laços são feitos à mão","Gostou, mas quer outra cor? Dá para personalizar"],cta:["Ver os laços","#produtos"]},
-  {ico:"🛍️",t:"Comprar na Shopee",s:"Um toque e pronto",h:"Toque em “Comprar na Shopee”",p:"O botão abre o anúncio direto na nossa loja oficial na Shopee. Lá você confere a descrição, escolhe a opção e coloca no carrinho.",li:["Use os cupons e as promoções da Shopee","Escolha a forma de pagamento que preferir","Tudo dentro do app que você já conhece"],cta:["Ver a loja na Shopee","shopee"]},
-  {ico:"🛡️",t:"Compra protegida",s:"Tranquilidade total",h:"Seu pagamento fica protegido",p:"A Shopee só repassa o pagamento para a loja depois que você confirma que recebeu o pedido. Se algo não estiver certo, você conta com o suporte da plataforma.",li:["Compra 100% pela Shopee","Acompanhe tudo pelo app","Atendimento pelo chat da loja"]},
-  {ico:"🎀",t:"Receba e encante",s:"Hora das fotos",h:"Chegou! Agora é só encantar",p:"Acompanhe a entrega pelo app da Shopee. Os laços vêm prontinhos na cartela, lindos para usar na hora ou para dar de presente.",li:["Ideal para fotos e datas especiais","Lindo para presentear","Quer um modelo exclusivo? Encomende o seu"],cta:["Encomendar um laço exclusivo","#encomendar"]}
+  {ico:"🔎",t:"Escolha o laço",s:"Navegue pelo catálogo",h:"Encontre o laço favorito dela",p:"Veja as fotos, compare os modelos e use os filtros por idade e por tipo: laços, tiaras, pares e kits. Na Coleção de Natal tem desconto!",li:["Filtre por idade: bebês (0 a 12 meses) ou crianças (até 12 anos)","Todos os laços são feitos à mão","Gostou, mas quer outra cor? Dá para personalizar"],cta:["Ver os laços","#produtos"]},
+  {ico:"🛍️",t:"Toque em Comprar",s:"Rapidinho",h:"Toque em “Comprar”",p:"Abre uma janelinha com o laço escolhido. Coloque o seu nome e a quantidade. O total aparece na hora.",li:["Sem cadastro e sem senha","Você vê o preço e o total antes de enviar","Pode pedir mais de uma unidade"]},
+  {ico:"💬",t:"Envie no WhatsApp",s:"Mensagem pronta",h:"Seu pedido vai prontinho",p:"Ao tocar em “Enviar pedido”, o WhatsApp da AbbaJu Mimos abre com tudo escrito: seu nome, o laço, a quantidade e o valor. É só enviar.",li:["Atendimento direto com a gente","Tire dúvidas na mesma conversa","Respondemos o quanto antes"]},
+  {ico:"🎀",t:"Receba e encante",s:"Hora das fotos",h:"Combinamos tudo e você recebe",p:"Pela conversa combinamos com você a forma de pagamento e a entrega. Os laços vão prontinhos, lindos para usar na hora ou para dar de presente.",li:["Ideal para fotos e datas especiais","Lindo para presentear","Quer um modelo exclusivo? Encomende o seu"],cta:["Encomendar um laço exclusivo","#encomendar"]}
 ];
 const ORDER_STEPS=[
   {ico:"✂️",t:"Monte o laço",s:"Do seu jeito",p:"Você escolhe o modelo, a cor, o aplique, como ele prende e a ocasião. Se quiser, coloque o nome da sua pequena e conte sua ideia.",li:["Veja a prévia mudando a cada escolha","Pode pedir mais de uma unidade","Tem uma ideia diferente? Escreva nas observações"]},
@@ -958,6 +1069,45 @@ function route(){
   else if(enc!==wasEnc || h==="encomendar" || h==="inicio"){scrollTo({top:0,behavior:"auto"})}
 }
 addEventListener("hashchange",route);
+
+/* ===== Comprar: popup -> WhatsApp ===== */
+const wa = txt => `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(txt)}`;
+$("#waFloat").href = wa("Olá, AbbaJu Mimos! Vim pelo catálogo e queria tirar uma dúvida 💜");
+$("#bandWpp").href = wa("Olá, AbbaJu Mimos! Vim pelo catálogo e queria tirar uma dúvida 💜");
+let bmProd=null, bmQ=1;
+function bmUpdate(){
+  const p=bmProd; if(!p) return;
+  const nome=$("#bmName").value.trim(), total=pnum(p.price)*bmQ;
+  $("#bmQty").textContent=bmQ; $("#bmTotal").textContent="R$ "+brl(total);
+  const msg=`Olá, AbbaJu Mimos! Meu nome é ${nome||"(nome)"} e quero comprar pelo catálogo 🎀\n\n• Produto: ${p.name}\n• Quantidade: ${bmQ}\n• Valor unitário: R$ ${p.price}\n• Total: R$ ${brl(total)}\n\nLink: ${p.link}\n\nPode me passar as formas de pagamento e entrega?`;
+  $("#bmSend").href=wa(msg);
+  $("#bmSend").classList.toggle("off",!nome);
+  $("#bmHint").textContent = nome ? "O WhatsApp abre com o pedido pronto. É só tocar em enviar 💜" : "Coloque seu nome para enviar o pedido 💜";
+}
+function bmOpen(id){
+  const p=PRODUCTS.find(x=>x.id===id); if(!p) return;
+  bmProd=p; bmQ=1;
+  $("#bmImg").src=`img/${p.id}.jpg`; $("#bmImg").alt=p.name;
+  $("#bmTitle").textContent=p.name;
+  $("#bmAge").textContent=p.ages.length>1?"Para todas as idades":AGE_TXT[p.ages[0]];
+  $("#bmPrice").innerHTML=(p.old?`<s>R$ ${p.old}</s>`:"")+`<small>R$</small>${p.price}`;
+  $("#buyModal").hidden=false; document.body.classList.add("lock");
+  bmUpdate(); setTimeout(()=>$("#bmName").focus(),50);
+}
+function bmClose(){$("#buyModal").hidden=true;document.body.classList.remove("lock")}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-buy]");if(b)bmOpen(b.dataset.buy)});
+$("#buyModal").addEventListener("click",e=>{
+  if(e.target.closest("[data-close]"))return bmClose();
+  const q=e.target.closest("[data-q]");if(q){bmQ=Math.max(1,Math.min(99,bmQ+(+q.dataset.q)));bmUpdate()}
+});
+$("#bmName").addEventListener("input",bmUpdate);
+$("#bmForm").addEventListener("submit",e=>{e.preventDefault();if($("#bmName").value.trim())$("#bmSend").click()});
+$("#bmSend").addEventListener("click",e=>{
+  if(!$("#bmName").value.trim()){e.preventDefault();$("#bmName").focus();$("#bmHint").textContent="Falta só o seu nome 💜";return}
+  bmUpdate(); setTimeout(bmClose,400);
+});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#buyModal").hidden)bmClose()});
+addDrips($("#buyModal"));
 route();
 </script>
 </body>
