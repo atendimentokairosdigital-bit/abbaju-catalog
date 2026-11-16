@@ -75,6 +75,7 @@ header.scrolled{box-shadow:0 8px 24px -16px rgba(94,64,120,.4)}
 .menu a:hover{color:var(--lilac-dark)}
 .menu a:hover::after{transform:scaleX(1)}
 .menu a.xm{color:var(--red)}
+.menu a.menu-shopee{display:none}
 .nav-cta{display:flex;gap:.6rem;align-items:center}
 .nav-cta .btn{padding:.65rem 1.1rem;font-size:.9rem}
 .burger{display:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;place-items:center}
@@ -84,7 +85,9 @@ header.scrolled{box-shadow:0 8px 24px -16px rgba(94,64,120,.4)}
 .open .burger i{background:transparent}.open .burger i::before{top:0;transform:rotate(45deg)}.open .burger i::after{top:0;transform:rotate(-45deg)}
 @media(max-width:980px){
   .burger{display:grid}
-  .nav-cta .btn{padding:.55rem .9rem;font-size:.82rem}
+  .nav-cta .btn{display:none}
+  .menu a.menu-shopee{display:flex;justify-content:center;margin-top:.9rem;padding:.85rem 1rem;border:0;border-radius:999px;background:var(--shopee);color:#fff;font-weight:800}
+  .menu a.menu-shopee:hover{color:#fff;filter:brightness(1.05)}
   .menu{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--cream);padding:.6rem 4% 1.2rem;border-bottom:1px solid var(--line);gap:0;transform:translateY(-8px);opacity:0;pointer-events:none;transition:.3s}
   .menu a{padding:.85rem .2rem;border-bottom:1px solid var(--line);border-radius:0}
   .menu a::after{display:none}
@@ -437,8 +440,6 @@ body.lock{overflow:hidden}
 .wa-float:hover .wa-tip{opacity:1;transform:none}
 @media(max-width:780px){.wa-float{bottom:84px;right:14px;width:54px;height:54px}}
 
-@media(max-width:600px){.nav{gap:.5rem}.brand img{width:44px;height:44px}.brand b{font-size:1.1rem}.brand b span{font-size:1.25rem}.nav-cta{gap:.4rem}.nav-cta .btn{padding:.5rem .75rem;font-size:.78rem}}
-@media(max-width:380px){.brand b{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.title .w,.reveal{opacity:1;transform:none;filter:none}.swash path{stroke-dashoffset:0}}
 </style>
 </head>
@@ -474,6 +475,7 @@ body.lock{overflow:hidden}
       <a href="#como-comprar">Como comprar</a>
       <a href="#encomendar">Personalize</a>
       <a href="#duvidas">Dúvidas</a>
+      <a class="menu-shopee" id="menuShopee" href="#" target="_blank" rel="noopener">🛍️ Loja na Shopee</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-shopee" id="navShopee" href="#" target="_blank" rel="noopener">Loja na Shopee</a>
@@ -793,7 +795,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 function shade(hex,p){let n=parseInt(hex.slice(1),16),r=n>>16,g=(n>>8)&255,b=n&255;const f=v=>Math.max(0,Math.min(255,Math.round(v+(p/100)*(p<0?v:255-v))));return "#"+[f(r),f(g),f(b)].map(v=>v.toString(16).padStart(2,"0")).join("")}
 
-["#navShopee","#mbarShopee"].forEach(id=>$(id).href=STORE.shopeeUrl);
+["#navShopee","#menuShopee","#mbarShopee"].forEach(id=>$(id).href=STORE.shopeeUrl);
 
 /* Menu */
 const hdr=$("#hdr");
