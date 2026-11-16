@@ -397,7 +397,6 @@ footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
 .agebar-l{font-weight:800;color:var(--ink-soft);font-size:.88rem;margin-right:.2rem}
 .chip.age{background:var(--gold-soft);border-color:#EBD9B5}
 .chip.age.active{background:linear-gradient(135deg,#D3AE68,var(--gold-dark));border-color:transparent;color:#fff}
-#natal .agebar{margin-top:.4rem}
 .age-tag{display:inline-block;align-self:flex-start;font-size:.72rem;font-weight:800;color:var(--lilac-dark);background:var(--lilac-soft);border-radius:999px;padding:.2rem .6rem}
 .empty{grid-column:1/-1;text-align:center;color:var(--ink-soft);font-weight:700;padding:2rem 1rem;background:#fff;border:1px dashed var(--line);border-radius:18px}
 .empty a{color:var(--lilac-dark);text-decoration:underline}
@@ -533,7 +532,6 @@ body.lock{overflow:hidden}
           <img src="img/k31.jpg" alt=""><img src="img/k38.jpg" alt=""><img src="img/k34.jpg" alt="">
         </div>
       </div>
-      <div class="agebar reveal"></div>
       <div class="grid" id="natal-grid"></div>
     </div>
   </section>
@@ -832,12 +830,12 @@ let current="Todos", age="todas";
 const byAge=p=>age==="todas"||p.ages.includes(age);
 const empty=`<p class="empty">Nenhum laço para essa idade nesta seção. Que tal <a href="#encomendar">encomendar um personalizado</a>? 💜</p>`;
 function renderAges(){document.querySelectorAll(".agebar").forEach(el=>el.innerHTML=`<span class="agebar-l">Filtrar por idade:</span>`+AGES.map(([k,t])=>`<button class="chip age ${k===age?"active":""}" data-age="${k}">${t}</button>`).join(""))}
-function renderNatal(){const l=PRODUCTS.filter(p=>p.cats.includes("Natal")&&byAge(p));$("#natal-grid").innerHTML=l.length?l.map(card).join(""):empty;observe($("#natal-grid"))}
+function renderNatal(){const l=PRODUCTS.filter(p=>p.cats.includes("Natal"));$("#natal-grid").innerHTML=l.length?l.map(card).join(""):empty;observe($("#natal-grid"))}
 const others = PRODUCTS.filter(p=>!p.cats.includes("Natal"));
 function renderFilters(){$("#filters").innerHTML=FILTERS.map(c=>`<button class="chip ${c===current?"active":""}" data-c="${esc(c)}">${esc(c)}</button>`).join("")}
 function renderGrid(){const l=others.filter(p=>(current==="Todos"||p.cats.includes(current))&&byAge(p));$("#grid").innerHTML=l.length?l.map(card).join(""):empty;observe($("#grid"))}
 $("#filters").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;current=b.dataset.c;renderFilters();renderGrid()});
-document.addEventListener("click",e=>{const b=e.target.closest("[data-age]");if(!b)return;age=b.dataset.age;renderAges();renderNatal();renderGrid()});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-age]");if(!b)return;age=b.dataset.age;renderAges();renderGrid()});
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-custom]");if(!b)return;
   const r=document.querySelector(`input[name=model][value="${b.dataset.model}"]`);if(r){r.checked=true;wzNextFrom(0)}
