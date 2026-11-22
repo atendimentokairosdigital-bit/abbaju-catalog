@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel · AbbaJu Mimos</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C49A52;--gold-dark:#9E7634;--gold-soft:#F6EAD3;
+  --lilac:#B9A0D2;--lilac-dark:#7E5FA6;--lilac-soft:#F1EAF8;
+  --cream:#FEF9F6;--ink:#4A3B52;--ink-soft:#7C6E84;--line:#EDE2EE;
+  --red:#B4232F;--green:#1F9D55;--radius:18px;--shadow:0 14px 34px -18px rgba(94,64,120,.45);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;line-height:1.1}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--lilac-dark)}
+[hidden]{display:none!important}
+.wrap{width:min(1180px,94%);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;border:0;border-radius:999px;padding:.7rem 1.2rem;font-weight:800;cursor:pointer;transition:transform .15s,filter .15s,opacity .15s;text-decoration:none;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-primary{background:var(--lilac-dark);color:#fff}
+.btn-gold{background:linear-gradient(135deg,#D3AE68,var(--gold-dark));color:#fff;box-shadow:0 10px 22px -12px var(--gold-dark)}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-danger{background:#fff;border:1.5px solid #F1C9CD;color:var(--red)}
+.btn-sm{padding:.45rem .8rem;font-size:.85rem}
+.icon-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;font-size:.95rem}
+.icon-btn:hover{border-color:var(--lilac)}
+.icon-btn:disabled{opacity:.35;cursor:not-allowed}
+label{font-weight:800;font-size:.9rem}
+.hint{font-weight:600;color:var(--ink-soft);font-size:.82rem}
+input[type=text],input[type=password],input[type=url],select,textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:.7rem .9rem;background:#fff;font-weight:600}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lilac)}
+.field{display:grid;gap:.35rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+
+/* Login */
+.login{min-height:100vh;display:grid;place-items:center;padding:2rem 1rem;background:radial-gradient(circle at 20% 10%,var(--lilac-soft),transparent 50%),radial-gradient(circle at 80% 90%,var(--gold-soft),transparent 50%)}
+.login-box{width:min(560px,100%);background:#fff;border-radius:26px;box-shadow:var(--shadow);padding:2.2rem;border:1px solid var(--line)}
+.login-box img{width:84px;height:84px;border-radius:50%;margin:0 auto .6rem;display:block}
+.login-box h1{text-align:center;font-size:2.1rem}
+.login-box>p{text-align:center;color:var(--ink-soft);margin:.3rem 0 1.4rem}
+.steps{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:1rem 1.2rem;margin:1rem 0;font-size:.9rem}
+.steps summary{cursor:pointer;font-weight:800;color:var(--lilac-dark)}
+.steps ol{margin:.7rem 0 0 1.2rem;display:grid;gap:.35rem}
+.check{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:.9rem}
+.err{color:var(--red);font-weight:800;font-size:.9rem;min-height:1.3em}
+
+/* Topo */
+.top{position:sticky;top:0;z-index:40;background:rgba(254,249,246,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:1rem;height:70px}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.4rem;color:var(--gold-dark);text-decoration:none}
+.brand img{width:44px;height:44px;border-radius:50%}
+.brand small{font-family:'Nunito',sans-serif;font-size:.75rem;font-weight:800;color:#fff;background:var(--lilac-dark);border-radius:999px;padding:.15rem .55rem;margin-left:.2rem}
+.top-actions{margin-left:auto;display:flex;align-items:center;gap:.6rem}
+.pending{font-weight:800;font-size:.85rem;color:var(--gold-dark);background:var(--gold-soft);border-radius:999px;padding:.35rem .8rem}
+@media(max-width:700px){.brand span{display:none}.top-actions a.btn-ghost{display:none}.top-actions .btn-gold{padding:.6rem .9rem;font-size:.85rem}}
+
+.tabs{display:flex;gap:.4rem;margin:1.4rem 0 1.2rem;flex-wrap:wrap}
+.tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.6rem 1.1rem;font-weight:800;cursor:pointer}
+.tab.active{background:var(--lilac-dark);border-color:var(--lilac-dark);color:#fff}
+.panel{padding-bottom:4rem}
+.panel h2{font-size:2rem;margin-bottom:.2rem}
+.panel .sub{color:var(--ink-soft);margin-bottom:1.2rem}
+
+/* Produtos */
+.toolbar{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}
+.toolbar input{max-width:280px}
+.toolbar select{max-width:220px}
+.toolbar .btn-gold{margin-left:auto}
+.plist{display:grid;gap:.6rem}
+.pitem{display:grid;grid-template-columns:64px 1fr auto;gap:1rem;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:.6rem .8rem}
+.pitem img{width:64px;height:64px;border-radius:12px;object-fit:cover;background:var(--lilac-soft)}
+.pitem h3{font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800}
+.pmeta{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:.2rem;font-size:.82rem}
+.tag{border-radius:999px;padding:.1rem .55rem;font-weight:800;font-size:.72rem;background:var(--lilac-soft);color:var(--lilac-dark)}
+.tag.xm{background:#FBE3E5;color:var(--red)}
+.tag.new{background:#E3F6EA;color:var(--green)}
+.price{font-weight:800;color:var(--gold-dark)}
+.price s{color:var(--ink-soft);font-weight:600;margin-right:.3rem}
+.pact{display:flex;gap:.35rem}
+@media(max-width:640px){.pitem{grid-template-columns:56px 1fr}.pitem img{width:56px;height:56px}.pact{grid-column:1/-1;justify-content:flex-end}}
+.empty{text-align:center;color:var(--ink-soft);padding:2rem;background:#fff;border:1px dashed var(--line);border-radius:16px;font-weight:700}
+
+/* Modal */
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:1rem;background:rgba(58,40,70,.45);backdrop-filter:blur(3px)}
+.modal-box{width:min(640px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:1.6rem}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.modal-head h2{font-size:1.8rem}
+.form{display:grid;gap:1rem}
+.photo{display:grid;grid-template-columns:120px 1fr;gap:1rem;align-items:center}
+.photo img,.photo .ph{width:120px;height:120px;border-radius:16px;object-fit:cover;background:var(--lilac-soft);display:grid;place-items:center;font-size:2rem;border:1.5px dashed var(--lilac)}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{display:inline-flex;align-items:center;gap:.4rem;border:1.5px solid var(--line);border-radius:999px;padding:.4rem .8rem;font-weight:700;font-size:.88rem;cursor:pointer;background:#fff}
+.chip input{accent-color:var(--lilac-dark)}
+.chip:has(input:checked){border-color:var(--lilac-dark);background:var(--lilac-soft);color:var(--lilac-dark)}
+.modal-foot{display:flex;justify-content:flex-end;gap:.6rem;margin-top:.4rem}
+.ferr{color:var(--red);font-weight:800;font-size:.88rem}
+
+/* Banners */
+.bgroup{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.3rem;margin-bottom:1.2rem}
+.bgroup h3{font-size:1.5rem}
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+@media(max-width:760px){.bgrid{grid-template-columns:1fr}}
+.bslot{display:grid;gap:.5rem}
+.bslot .pv{aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--lilac-soft);position:relative}
+.bslot.round .pv{border-radius:50%;border:4px solid #F3D28B}
+.bslot .pv img{width:100%;height:100%;object-fit:cover}
+.bslot .pv .chg{position:absolute;top:.5rem;left:.5rem}
+.bslot b{font-size:.9rem}
+.bslot .acts{display:flex;gap:.4rem;flex-wrap:wrap}
+
+/* Cores */
+.cgrid{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.4rem}
+.citem{display:flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem .4rem .35rem .4rem}
+.citem i{width:30px;height:30px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.citem span{font-weight:800;font-size:.9rem}
+.citem button{width:26px;height:26px;border-radius:50%;border:0;background:var(--cream);cursor:pointer;color:var(--red);font-weight:800}
+.cadd{display:flex;gap:.6rem;align-items:flex-end;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1rem}
+.cadd .field{min-width:200px}
+.cadd input[type=color]{width:64px;height:46px;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:3px;cursor:pointer}
+
+/* Publicar */
+.overlay{position:fixed;inset:0;z-index:90;background:rgba(254,249,246,.92);display:grid;place-items:center;padding:1rem}
+.ov-box{background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:2rem;width:min(460px,100%);text-align:center;border:1px solid var(--line)}
+.ov-box h2{font-size:1.9rem;margin-bottom:.5rem}
+.ov-box p{color:var(--ink-soft)}
+.spin{width:46px;height:46px;border-radius:50%;border:4px solid var(--lilac-soft);border-top-color:var(--lilac-dark);margin:0 auto 1rem;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:95;background:var(--ink);color:#fff;font-weight:800;padding:.8rem 1.2rem;border-radius:14px;box-shadow:var(--shadow)}
+</style>
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<section class="login" id="login">
+  <div class="login-box">
+    <img src="img/logo.jpg" alt="AbbaJu Mimos">
+    <h1>Painel do catálogo</h1>
+    <p>Cadastre produtos, troque banners e cores. Ao publicar, o site atualiza sozinho em cerca de 1 minuto.</p>
+    <form id="loginForm" class="form" novalidate>
+      <div class="field">
+        <label for="token">Chave de acesso do GitHub</label>
+        <input type="password" id="token" placeholder="github_pat_…" autocomplete="off">
+        <span class="hint">A chave fica só neste navegador e é usada apenas para salvar no GitHub.</span>
+      </div>
+      <label class="check"><input type="checkbox" id="remember" checked> Lembrar neste computador</label>
+      <div class="err" id="loginErr"></div>
+      <button class="btn btn-gold" type="submit" id="loginBtn">Entrar no painel</button>
+    </form>
+    <details class="steps">
+      <summary>Como criar a chave (só uma vez)</summary>
+      <ol>
+        <li>Entre no GitHub com a conta <b>atendimentokairosdigital-bit</b> e abra <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Criar token (fine-grained)</a>.</li>
+        <li><b>Token name:</b> Painel AbbaJu · <b>Expiration:</b> escolha um prazo (ex.: 1 ano).</li>
+        <li><b>Repository access:</b> “Only select repositories” → <b>abbaju-catalog</b>.</li>
+        <li><b>Permissions → Repository permissions → Contents:</b> “Read and write”.</li>
+        <li>Clique em <b>Generate token</b>, copie a chave e cole aqui.</li>
+      </ol>
+    </details>
+  </div>
+</section>
+
+<!-- ============ PAINEL ============ -->
+<div id="app" hidden>
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="brand" href="./" target="_blank" rel="noopener"><img src="img/logo.jpg" alt=""><span>AbbaJu Mimos</span><small>painel</small></a>
+      <div class="top-actions">
+        <span class="pending" id="pending" hidden></span>
+        <a class="btn btn-ghost btn-sm" href="./" target="_blank" rel="noopener">Ver site ↗</a>
+        <button class="btn btn-gold" id="publishBtn" disabled>Publicar no site</button>
+        <button class="btn btn-ghost btn-sm" id="logout">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="tabs">
+      <button class="tab active" data-tab="produtos">🛍️ Produtos <span id="pCount"></span></button>
+      <button class="tab" data-tab="banners">🖼️ Banners</button>
+      <button class="tab" data-tab="cores">🎨 Cores do personalizado</button>
+    </nav>
+
+    <section class="panel" id="tab-produtos">
+      <h2>Produtos</h2>
+      <p class="sub">Adicione, edite, remova e mude a ordem dos produtos. A ordem aqui é a ordem no site.</p>
+      <div class="toolbar">
+        <input type="text" id="q" placeholder="🔎 Buscar produto">
+        <select id="fVitrine"><option value="">Todas as vitrines</option><option value="natal">🎄 Coleção de Natal</option><option value="outros">Mais mimos para ela</option></select>
+        <button class="btn btn-gold" id="addProd">＋ Adicionar produto</button>
+      </div>
+      <div class="plist" id="plist"></div>
+    </section>
+
+    <section class="panel" id="tab-banners" hidden>
+      <h2>Banners</h2>
+      <p class="sub">Troque as fotos do banner principal e do banner da Coleção de Natal. Use fotos quadradas ou verticais, bem iluminadas.</p>
+      <div class="bgroup"><h3>Banner principal (topo do site)</h3><div class="bgrid" id="bPrincipal"></div></div>
+      <div class="bgroup"><h3>Banner da Coleção de Natal (fotos redondas)</h3><div class="bgrid" id="bNatal"></div></div>
+    </section>
+
+    <section class="panel" id="tab-cores" hidden>
+      <h2>Cores do “Quero personalizar”</h2>
+      <p class="sub">Essas são as cores que a cliente pode escolher ao montar o laço (até 2 por pedido).</p>
+      <div class="cgrid" id="cgrid"></div>
+      <form class="cadd" id="cForm" novalidate>
+        <div class="field"><label for="cName">Nome da cor</label><input type="text" id="cName" placeholder="Ex.: Azul tiffany" maxlength="30"></div>
+        <div class="field"><label for="cHex">Cor</label><input type="color" id="cHex" value="#B9A0D2"></div>
+        <button class="btn btn-primary" type="submit">＋ Adicionar cor</button>
+        <span class="ferr" id="cErr"></span>
+      </form>
+    </section>
+  </main>
+</div>
+
+<!-- Modal produto -->
+<div class="modal" id="pModal" hidden>
+  <div class="modal-box">
+    <div class="modal-head"><h2 id="pmTitle">Novo produto</h2><button class="icon-btn" data-close>✕</button></div>
+    <form class="form" id="pForm" novalidate>
+      <div class="photo">
+        <div id="pmPhoto"><div class="ph">📷</div></div>
+        <div class="field">
+          <label>Foto do produto</label>
+          <input type="file" id="pmFile" accept="image/*">
+          <span class="hint">JPG ou PNG. A foto é ajustada automaticamente.</span>
+        </div>
+      </div>
+      <div class="field"><label for="pmName">Nome</label><input type="text" id="pmName" maxlength="80" placeholder="Ex.: Laço Hadassa rosa"></div>
+      <div class="row">
+        <div class="field"><label for="pmPrice">Preço (R$)</label><input type="text" id="pmPrice" inputmode="decimal" placeholder="24,90"></div>
+        <div class="field"><label for="pmOld">Preço antigo <span class="hint">(opcional, mostra o desconto)</span></label><input type="text" id="pmOld" inputmode="decimal" placeholder="34,90"></div>
+      </div>
+      <div class="field"><label>Vitrine</label>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="pmVit" value="natal"> 🎄 Coleção de Natal</label>
+          <label class="chip"><input type="radio" name="pmVit" value="outros" checked> Mais mimos para ela</label>
+        </div>
+      </div>
+      <div class="field"><label>Categoria <span class="hint">(filtros da vitrine “Mais mimos”)</span></label>
+        <div class="chips" id="pmCats"></div>
+      </div>
+      <div class="field"><label>Idade</label>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="pmAge" value="bebe"> 👶 Bebês · 0 a 12 meses</label>
+          <label class="chip"><input type="checkbox" name="pmAge" value="crianca"> 🎀 Crianças · até 12 anos</label>
+        </div>
+      </div>
+      <div class="field"><label for="pmModel">“Quero personalizado”</label>
+        <select id="pmModel"></select>
+        <span class="hint">Define o modelo que já vem marcado quando a cliente toca em “Quero personalizado”.</span>
+      </div>
+      <div class="field"><label for="pmLink">Link do produto <span class="hint">(opcional, vai na mensagem do WhatsApp)</span></label><input type="url" id="pmLink" placeholder="https://abbajumimos.kyte.site/…"></div>
+      <div class="ferr" id="pmErr"></div>
+      <div class="modal-foot"><button type="button" class="btn btn-ghost" data-close>Cancelar</button><button class="btn btn-gold" type="submit">Salvar produto</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- Overlay publicar -->
+<div class="overlay" id="ov" hidden><div class="ov-box" id="ovBox"></div></div>
+<div class="toast" id="toast" hidden></div>
+<input type="file" id="bannerFile" accept="image/*" hidden>
+
+<script>
+/* ===== Configuração ===== */
+const GH = {owner:"atendimentokairosdigital-bit", repo:"abbaju-catalog", branch:"main"};
+const CATS = ["Laços","Tiaras","Pares e kits","Acessórios"];
+const MODELS = ["Laço gravatinha","Laço tradicional","Laço com pérolas","Laço com brilho","Faixa para bebê","Tiara / arco 2 em 1","Par de laços","Kit de laços"];
+const SLOTS = {principal:["Foto grande (arco)","Foto pequena de cima","Foto pequena de baixo"], natal:["Círculo da esquerda","Círculo do centro (maior)","Círculo da direita"]};
+const PROTECTED = new Set(["img/logo.jpg"]);
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+const recentImgs = new Map();
+let TOKEN = "", data = null, original = "", originalImgs = new Set(), pendingImgs = new Map(), editingId = null, pmNewImg = null, bannerTarget = null;
+
+/* ===== GitHub API ===== */
+async function gh(path, opts={}){
+  const r = await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}${path}`, {
+    ...opts,
+    headers:{"Authorization":`Bearer ${TOKEN}`,"Accept":opts.raw?"application/vnd.github.raw":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28",...(opts.body?{"Content-Type":"application/json"}:{})},
+    cache:"no-store"
+  });
+  if(!r.ok){const e=new Error(`GitHub ${r.status}`);e.status=r.status;try{e.detail=(await r.json()).message}catch(_){};throw e}
+  return opts.raw ? r.text() : (r.status===204 ? null : r.json());
+}
+function ghError(e){
+  if(e.status===401) return "Chave inválida ou expirada. Crie uma nova chave no GitHub.";
+  if(e.status===403||e.status===404) return "Essa chave não tem acesso ao repositório abbaju-catalog com permissão “Contents: Read and write”.";
+  if(e.status===409||e.status===422) return "O site foi alterado ao mesmo tempo por outro lugar. Tente publicar de novo.";
+  return "Não foi possível falar com o GitHub agora. Verifique a internet e tente de novo."+(e.status?` (erro ${e.status})`:"");
+}
+
+/* ===== Login ===== */
+async function login(tok, remember){
+  TOKEN = tok.trim();
+  $("#loginErr").textContent=""; $("#loginBtn").disabled=true; $("#loginBtn").textContent="Entrando…";
+  try{
+    const repo = await gh("");
+    if(!repo.permissions || !repo.permissions.push){const e=new Error();e.status=403;throw e}
+    await loadData();
+    try{(remember?localStorage:sessionStorage).setItem("abbaju_gh",TOKEN)}catch(_){}
+    $("#login").hidden=true; $("#app").hidden=false; renderAll();
+  }catch(e){
+    $("#loginErr").textContent = ghError(e);
+    try{localStorage.removeItem("abbaju_gh");sessionStorage.removeItem("abbaju_gh")}catch(_){}
+  }finally{$("#loginBtn").disabled=false;$("#loginBtn").textContent="Entrar no painel"}
+}
+$("#loginForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#token").value;if(!t.trim()){$("#loginErr").textContent="Cole a chave de acesso.";return}login(t,$("#remember").checked)});
+$("#logout").addEventListener("click",()=>{if(isDirty()&&!confirm("Você tem alterações não publicadas. Sair mesmo assim?"))return;try{localStorage.removeItem("abbaju_gh");sessionStorage.removeItem("abbaju_gh")}catch(_){}location.reload()});
+
+async function loadData(){
+  const txt = await gh(`/contents/data.json?ref=${GH.branch}&t=${Date.now()}`,{raw:true});
+  data = JSON.parse(txt);
+  data.banners = data.banners||{}; data.banners.principal=data.banners.principal||[]; data.banners.natal=data.banners.natal||[];
+  data.cores = data.cores||[]; data.produtos = data.produtos||[];
+  original = JSON.stringify(data); originalImgs = usedImgs(data); pendingImgs.clear();
+}
+function usedImgs(d){const s=new Set();d.produtos.forEach(p=>p.img&&s.add(p.img));["principal","natal"].forEach(g=>(d.banners[g]||[]).forEach(b=>b&&b.img&&s.add(b.img)));return s}
+const isDirty = () => data && JSON.stringify(data)!==original;
+function imgSrc(path){return pendingImgs.has(path)?pendingImgs.get(path).url:recentImgs.has(path)?recentImgs.get(path):path}
+
+/* ===== Abas ===== */
+document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===t));
+  ["produtos","banners","cores"].forEach(k=>$("#tab-"+k).hidden=k!==t.dataset.tab);
+}));
+
+function renderAll(){renderProducts();renderBanners();renderColors();refreshPending()}
+function refreshPending(){
+  const d=isDirty(); $("#publishBtn").disabled=!d;
+  $("#pending").hidden=!d; $("#pending").textContent="Alterações não publicadas";
+  $("#pCount").textContent=`(${data.produtos.length})`;
+}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(t._t);t._t=setTimeout(()=>t.hidden=true,2600)}
+
+/* ===== Produtos ===== */
+const pnum = v => parseFloat(String(v).replace(/\./g,"").replace(",","."));
+function fmtPrice(v){v=String(v||"").trim().replace(/[^\d,.]/g,"");if(!v)return "";let n;if(v.includes(","))n=pnum(v);else n=parseFloat(v);if(!isFinite(n)||n<=0)return null;return n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2})}
+function renderProducts(){
+  const q=$("#q").value.trim().toLowerCase(), f=$("#fVitrine").value;
+  const list=data.produtos.map((p,i)=>({p,i})).filter(({p})=>(!q||p.nome.toLowerCase().includes(q))&&(!f||(f==="natal")===(p.categorias||[]).includes("Natal")));
+  if(!list.length){$("#plist").innerHTML=`<div class="empty">${data.produtos.length?"Nenhum produto encontrado.":"Nenhum produto ainda. Toque em “Adicionar produto”."}</div>`;return}
+  const filtering=q||f;
+  $("#plist").innerHTML=list.map(({p,i})=>{
+    const cats=(p.categorias||[]);
+    const ages=(p.idades||[]).map(a=>a==="bebe"?"👶 0–12 meses":"🎀 até 12 anos").join(" · ");
+    return `<div class="pitem">
+      <img src="${esc(imgSrc(p.img))}" alt="" loading="lazy">
+      <div><h3>${esc(p.nome)}</h3>
+        <div class="pmeta"><span class="price">${p.preco_antigo?`<s>R$ ${esc(p.preco_antigo)}</s>`:""}R$ ${esc(p.preco)}</span>
+        ${cats.includes("Natal")?'<span class="tag xm">🎄 Natal</span>':""}${cats.filter(c=>c!=="Natal").map(c=>`<span class="tag">${esc(c)}</span>`).join("")}
+        ${p.modelo?'<span class="tag">✂️ personalizável</span>':""}${pendingImgs.has(p.img)?'<span class="tag new">foto nova</span>':""}
+        <span class="hint">${ages}</span></div></div>
+      <div class="pact">
+        <button class="icon-btn" data-up="${i}" title="Subir" ${i===0||filtering?"disabled":""}>↑</button>
+        <button class="icon-btn" data-down="${i}" title="Descer" ${i===data.produtos.length-1||filtering?"disabled":""}>↓</button>
+        <button class="btn btn-ghost btn-sm" data-edit="${i}">✏️ Editar</button>
+        <button class="btn btn-danger btn-sm" data-del="${i}">🗑️</button>
+      </div></div>`}).join("");
+}
+$("#q").addEventListener("input",renderProducts);$("#fVitrine").addEventListener("change",renderProducts);
+$("#plist").addEventListener("click",e=>{
+  const b=e.target.closest("button");if(!b)return;const P=data.produtos;
+  if(b.dataset.up){const i=+b.dataset.up;[P[i-1],P[i]]=[P[i],P[i-1]]}
+  else if(b.dataset.down){const i=+b.dataset.down;[P[i+1],P[i]]=[P[i],P[i+1]]}
+  else if(b.dataset.del){const i=+b.dataset.del;if(!confirm(`Remover “${P[i].nome}” do catálogo?`))return;P.splice(i,1);toast("Produto removido. Lembre de publicar.")}
+  else if(b.dataset.edit){return openProduct(+b.dataset.edit)}
+  renderProducts();refreshPending();
+});
+
+$("#pmCats").innerHTML=CATS.map(c=>`<label class="chip"><input type="checkbox" name="pmCat" value="${esc(c)}"> ${esc(c)}</label>`).join("");
+$("#pmModel").innerHTML=`<option value="">Não é personalizável</option>`+MODELS.map(m=>`<option>${esc(m)}</option>`).join("");
+$("#addProd").addEventListener("click",()=>openProduct(-1));
+function openProduct(i){
+  editingId=i; pmNewImg=null; $("#pmErr").textContent=""; $("#pmFile").value="";
+  const p = i>=0 ? data.produtos[i] : {nome:"",preco:"",preco_antigo:"",categorias:["Laços"],idades:["crianca"],modelo:"Laço tradicional",link:"",img:""};
+  $("#pmTitle").textContent = i>=0 ? "Editar produto" : "Novo produto";
+  $("#pmName").value=p.nome; $("#pmPrice").value=p.preco; $("#pmOld").value=p.preco_antigo||""; $("#pmLink").value=p.link||"";
+  const cats=p.categorias||[];
+  document.querySelector(`input[name=pmVit][value=${cats.includes("Natal")?"natal":"outros"}]`).checked=true;
+  document.querySelectorAll("input[name=pmCat]").forEach(c=>c.checked=cats.includes(c.value));
+  document.querySelectorAll("input[name=pmAge]").forEach(c=>c.checked=(p.idades||[]).includes(c.value));
+  $("#pmModel").value=p.modelo||"";
+  $("#pmPhoto").innerHTML = p.img?`<img src="${esc(imgSrc(p.img))}" alt="">`:`<div class="ph">📷</div>`;
+  $("#pModal").hidden=false; setTimeout(()=>$("#pmName").focus(),50);
+}
+document.querySelectorAll("#pModal [data-close]").forEach(b=>b.addEventListener("click",()=>$("#pModal").hidden=true));
+$("#pmFile").addEventListener("change",async()=>{
+  const f=$("#pmFile").files[0];if(!f)return;
+  try{pmNewImg=await processImage(f,800);$("#pmPhoto").innerHTML=`<img src="${pmNewImg.url}" alt="">`}
+  catch(_){$("#pmErr").textContent="Não consegui abrir essa imagem. Tente outra foto (JPG ou PNG)."}
+});
+$("#pForm").addEventListener("submit",e=>{
+  e.preventDefault(); const err=m=>{$("#pmErr").textContent=m};
+  const nome=$("#pmName").value.trim(), preco=fmtPrice($("#pmPrice").value), old=fmtPrice($("#pmOld").value);
+  const vit=document.querySelector("input[name=pmVit]:checked").value;
+  const cats=[...document.querySelectorAll("input[name=pmCat]:checked")].map(c=>c.value);
+  const ages=[...document.querySelectorAll("input[name=pmAge]:checked")].map(c=>c.value);
+  const cur = editingId>=0 ? data.produtos[editingId] : null;
+  if(!nome) return err("Coloque o nome do produto.");
+  if(!preco) return err("Coloque um preço válido (ex.: 24,90).");
+  if(old===null) return err("O preço antigo não está válido.");
+  if(old && pnum(old)<=pnum(preco)) return err("O preço antigo precisa ser maior que o preço atual (ou deixe em branco).");
+  if(vit==="outros"&&!cats.length) return err("Escolha pelo menos uma categoria para a vitrine “Mais mimos”.");
+  if(!ages.length) return err("Escolha pelo menos uma idade.");
+  if(!pmNewImg && !(cur&&cur.img)) return err("Adicione a foto do produto.");
+  const link=$("#pmLink").value.trim();
+  if(link && !/^https?:\/\//i.test(link)) return err("O link precisa começar com https://");
+  const p = cur || {id:"p"+Date.now().toString(36)};
+  p.nome=nome; p.preco=preco; if(old) p.preco_antigo=old; else delete p.preco_antigo;
+  p.categorias = vit==="natal" ? ["Natal",...cats] : cats;
+  p.idades=ages; p.modelo=$("#pmModel").value; p.link=link;
+  if(pmNewImg){const path=`img/${p.id}-${Date.now().toString(36)}.jpg`;pendingImgs.set(path,pmNewImg);p.img=path}
+  if(!cur) data.produtos.unshift(p);
+  // reordena o objeto para manter o JSON organizado
+  const ordered={id:p.id,nome:p.nome,preco:p.preco};if(p.preco_antigo)ordered.preco_antigo=p.preco_antigo;Object.assign(ordered,{categorias:p.categorias,idades:p.idades,modelo:p.modelo,link:p.link,img:p.img});
+  const idx=data.produtos.indexOf(p); data.produtos[idx]=ordered;
+  $("#pModal").hidden=true; renderProducts(); refreshPending();
+  toast(cur?"Produto atualizado. Lembre de publicar.":"Produto adicionado no topo da lista. Lembre de publicar.");
+});
+
+/* ===== Imagens ===== */
+function processImage(file,max){
+  return new Promise((res,rej)=>{
+    const url=URL.createObjectURL(file), im=new Image();
+    im.onload=()=>{
+      const s=Math.min(1,max/Math.max(im.naturalWidth,im.naturalHeight));
+      const c=document.createElement("canvas");c.width=Math.round(im.naturalWidth*s);c.height=Math.round(im.naturalHeight*s);
+      const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+      URL.revokeObjectURL(url);
+      const d=c.toDataURL("image/jpeg",.82);res({url:d,b64:d.split(",")[1]});
+    };
+    im.onerror=()=>{URL.revokeObjectURL(url);rej(new Error("img"))};
+    im.src=url;
+  });
+}
+
+/* ===== Banners ===== */
+function renderBanners(){
+  ["principal","natal"].forEach(g=>{
+    const box=g==="principal"?$("#bPrincipal"):$("#bNatal");
+    box.innerHTML=SLOTS[g].map((label,i)=>{
+      const b=data.banners[g][i]||{img:"",alt:""};
+      return `<div class="bslot ${g==="natal"?"round":""}">
+        <b>${label}</b>
+        <div class="pv">${b.img?`<img src="${esc(imgSrc(b.img))}" alt="">`:""}</div>
+        <div class="acts">
+          <button class="btn btn-primary btn-sm" data-bup="${g}-${i}">📷 Trocar foto</button>
+          <select class="btn-sm" data-bprod="${g}-${i}" style="max-width:100%"><option value="">ou usar foto de um produto…</option>${data.produtos.map(p=>`<option value="${esc(p.img)}">${esc(p.nome)}</option>`).join("")}</select>
+        </div>
+        <input type="text" data-balt="${g}-${i}" value="${esc(b.alt||"")}" placeholder="Descrição da foto (opcional)" maxlength="90">
+      </div>`}).join("");
+  });
+}
+function setBanner(key,patch){const[g,i]=key.split("-");data.banners[g][+i]={...(data.banners[g][+i]||{img:"",alt:""}),...patch};refreshPending()}
+document.querySelector("#tab-banners").addEventListener("click",e=>{const b=e.target.closest("[data-bup]");if(!b)return;bannerTarget=b.dataset.bup;$("#bannerFile").value="";$("#bannerFile").click()});
+document.querySelector("#tab-banners").addEventListener("change",e=>{const s=e.target.closest("[data-bprod]");if(!s||!s.value)return;setBanner(s.dataset.bprod,{img:s.value,alt:""});renderBanners();toast("Foto do banner trocada. Lembre de publicar.")});
+document.querySelector("#tab-banners").addEventListener("input",e=>{const a=e.target.closest("[data-balt]");if(a)setBanner(a.dataset.balt,{alt:a.value})});
+$("#bannerFile").addEventListener("change",async()=>{
+  const f=$("#bannerFile").files[0];if(!f||!bannerTarget)return;
+  try{const im=await processImage(f,1000);const path=`img/banner-${bannerTarget}-${Date.now().toString(36)}.jpg`;pendingImgs.set(path,im);setBanner(bannerTarget,{img:path,alt:""});renderBanners();toast("Foto do banner trocada. Lembre de publicar.")}
+  catch(_){toast("Não consegui abrir essa imagem. Tente outra foto.")}
+});
+
+/* ===== Cores ===== */
+function renderColors(){
+  $("#cgrid").innerHTML=data.cores.map((c,i)=>`<div class="citem"><i style="background:${esc(c.hex)}"></i><span>${esc(c.nome)}</span><button data-cdel="${i}" title="Remover">✕</button></div>`).join("")||`<div class="empty">Nenhuma cor cadastrada.</div>`;
+}
+$("#cgrid").addEventListener("click",e=>{const b=e.target.closest("[data-cdel]");if(!b)return;const i=+b.dataset.cdel;
+  if(data.cores.length<=1){toast("Deixe pelo menos uma cor.");return}
+  data.cores.splice(i,1);renderColors();refreshPending()});
+$("#cForm").addEventListener("submit",e=>{e.preventDefault();
+  const nome=$("#cName").value.trim(),hex=$("#cHex").value.toUpperCase();$("#cErr").textContent="";
+  if(!nome)return $("#cErr").textContent="Dê um nome para a cor.";
+  if(data.cores.some(c=>c.nome.toLowerCase()===nome.toLowerCase()))return $("#cErr").textContent="Já existe uma cor com esse nome.";
+  data.cores.push({nome,hex});$("#cName").value="";renderColors();refreshPending();toast("Cor adicionada. Lembre de publicar.")});
+
+/* ===== Publicar ===== */
+$("#publishBtn").addEventListener("click",publish);
+async function publish(){
+  if(!isDirty())return;
+  const ov=$("#ov"),box=$("#ovBox");
+  const step=t=>box.innerHTML=`<div class="spin"></div><h2>Publicando…</h2><p>${t}</p>`;
+  ov.hidden=false;
+  try{
+    data.atualizado_em=new Date().toISOString();
+    const nowImgs=usedImgs(data);
+    const toUpload=[...pendingImgs.entries()].filter(([p])=>nowImgs.has(p));
+    const toDelete=[...originalImgs].filter(p=>!nowImgs.has(p)&&!PROTECTED.has(p)&&p.startsWith("img/"));
+    step("Preparando as alterações…");
+    const ref=await gh(`/git/ref/heads/${GH.branch}`);
+    const head=ref.object.sha;
+    const commit=await gh(`/git/commits/${head}`);
+    const tree=[{path:"data.json",mode:"100644",type:"blob",content:JSON.stringify(data,null,2)+"\n"}];
+    let n=0;
+    for(const [path,im] of toUpload){
+      step(`Enviando fotos (${++n} de ${toUpload.length})…`);
+      const blob=await gh(`/git/blobs`,{method:"POST",body:JSON.stringify({content:im.b64,encoding:"base64"})});
+      tree.push({path,mode:"100644",type:"blob",sha:blob.sha});
+    }
+    if(toDelete.length){
+      const cur=await gh(`/git/trees/${commit.tree.sha}?recursive=1`);
+      const exists=new Set(cur.tree.map(t=>t.path));
+      toDelete.filter(p=>exists.has(p)).forEach(path=>tree.push({path,mode:"100644",type:"blob",sha:null}));
+    }
+    step("Salvando no GitHub…");
+    const nt=await gh(`/git/trees`,{method:"POST",body:JSON.stringify({base_tree:commit.tree.sha,tree})});
+    const nc=await gh(`/git/commits`,{method:"POST",body:JSON.stringify({message:`Painel: atualiza catálogo (${new Date().toLocaleString("pt-BR")})`,tree:nt.sha,parents:[head]})});
+    await gh(`/git/refs/heads/${GH.branch}`,{method:"PATCH",body:JSON.stringify({sha:nc.sha})});
+    original=JSON.stringify(data); originalImgs=nowImgs; pendingImgs.forEach((im,p)=>recentImgs.set(p,im.url)); pendingImgs.clear();
+    box.innerHTML=`<h2>Publicado! 🎀</h2><p>O site atualiza sozinho em cerca de 1 minuto.</p><div style="display:flex;gap:.6rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap"><a class="btn btn-primary" href="./" target="_blank" rel="noopener">Ver o site ↗</a><button class="btn btn-ghost" id="ovClose">Continuar editando</button></div>`;
+    $("#ovClose").onclick=()=>ov.hidden=true;
+    renderAll();
+  }catch(e){
+    box.innerHTML=`<h2>Não deu certo 😕</h2><p>${esc(ghError(e))}</p><p class="hint" style="margin-top:.6rem">Suas alterações continuam aqui no painel.</p><div style="margin-top:1.2rem"><button class="btn btn-gold" id="ovClose">Fechar</button></div>`;
+    $("#ovClose").onclick=()=>ov.hidden=true;
+  }
+}
+addEventListener("beforeunload",e=>{if(isDirty()){e.preventDefault();e.returnValue=""}});
+
+/* ===== Início ===== */
+(function(){let t="";try{t=localStorage.getItem("abbaju_gh")||sessionStorage.getItem("abbaju_gh")||""}catch(_){}if(t){$("#token").value=t;login(t,!!localStorage.getItem("abbaju_gh"))}})();
+</script>
+</body>
+</html>

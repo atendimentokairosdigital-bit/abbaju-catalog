@@ -1,0 +1,697 @@
+{
+  "atualizado_em": "2026-11-22T19:57:25.002Z",
+  "banners": {
+    "principal": [
+      {
+        "img": "img/k18.jpg",
+        "alt": "Menina usando laço Hadassa"
+      },
+      {
+        "img": "img/k20.jpg",
+        "alt": "Laços vermelhos do kit Débora"
+      },
+      {
+        "img": "img/k26.jpg",
+        "alt": "Pares de laço fofura em várias cores"
+      }
+    ],
+    "natal": [
+      {
+        "img": "img/k31.jpg",
+        "alt": ""
+      },
+      {
+        "img": "img/k38.jpg",
+        "alt": ""
+      },
+      {
+        "img": "img/k34.jpg",
+        "alt": ""
+      }
+    ]
+  },
+  "cores": [
+    {
+      "nome": "Rosa",
+      "hex": "#F2A7BE"
+    },
+    {
+      "nome": "Rosa claro",
+      "hex": "#F7CFDA"
+    },
+    {
+      "nome": "Pink",
+      "hex": "#D83C7A"
+    },
+    {
+      "nome": "Vermelho",
+      "hex": "#C8232F"
+    },
+    {
+      "nome": "Lilás",
+      "hex": "#C3A6E0"
+    },
+    {
+      "nome": "Lavanda",
+      "hex": "#D9CBF0"
+    },
+    {
+      "nome": "Roxo",
+      "hex": "#7E4FB5"
+    },
+    {
+      "nome": "Uva",
+      "hex": "#5B2A7A"
+    },
+    {
+      "nome": "Azul bebê",
+      "hex": "#A9CCEB"
+    },
+    {
+      "nome": "Azul céu",
+      "hex": "#6FB3E0"
+    },
+    {
+      "nome": "Azul turquesa",
+      "hex": "#2FB5B8"
+    },
+    {
+      "nome": "Azul royal",
+      "hex": "#2F5BB7"
+    },
+    {
+      "nome": "Azul marinho",
+      "hex": "#1F2E5A"
+    },
+    {
+      "nome": "Verde água",
+      "hex": "#9ED9C3"
+    },
+    {
+      "nome": "Verde menta",
+      "hex": "#B5E3C4"
+    },
+    {
+      "nome": "Verde bandeira",
+      "hex": "#2E8B57"
+    },
+    {
+      "nome": "Verde oliva",
+      "hex": "#5E7A3A"
+    },
+    {
+      "nome": "Verde musgo",
+      "hex": "#3E5A35"
+    },
+    {
+      "nome": "Amarelo",
+      "hex": "#F5CD3D"
+    },
+    {
+      "nome": "Salmão",
+      "hex": "#F8B497"
+    },
+    {
+      "nome": "Nude",
+      "hex": "#E8C9B0"
+    },
+    {
+      "nome": "Off-white",
+      "hex": "#F6EFE3"
+    },
+    {
+      "nome": "Dourado",
+      "hex": "#CFA75A"
+    },
+    {
+      "nome": "Preto",
+      "hex": "#2B2629"
+    }
+  ],
+  "produtos": [
+    {
+      "id": "k28",
+      "nome": "Arco 2 em 1 ursinho Natal",
+      "preco": "33,17",
+      "preco_antigo": "55,00",
+      "categorias": [
+        "Natal",
+        "Tiaras"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Tiara / arco 2 em 1",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/arco-2-em-1-ursinho-natal/1793553266848-AKCVn",
+      "img": "img/k28.jpg"
+    },
+    {
+      "id": "k29",
+      "nome": "Arco vermelho ursinho Natal",
+      "preco": "33,17",
+      "preco_antigo": "55,90",
+      "categorias": [
+        "Natal",
+        "Tiaras"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Tiara / arco 2 em 1",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/arco-vermelho-ursinho-natal/1793553332195-AKCVn",
+      "img": "img/k29.jpg"
+    },
+    {
+      "id": "k30",
+      "nome": "Laço baby meia ursinho branco e vermelho",
+      "preco": "18,78",
+      "preco_antigo": "34,90",
+      "categorias": [
+        "Natal"
+      ],
+      "idades": [
+        "bebe"
+      ],
+      "modelo": "Faixa para bebê",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-baby-meia-ursinho-branco-e-vermelho/1793553878745-AKCVn",
+      "img": "img/k30.jpg"
+    },
+    {
+      "id": "k31",
+      "nome": "Laço bico de pato ursinho Natal",
+      "preco": "33,75",
+      "preco_antigo": "43,59",
+      "categorias": [
+        "Natal"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-bico-de-pato-ursinho-natal/1793553469465-AKCVn",
+      "img": "img/k31.jpg"
+    },
+    {
+      "id": "k32",
+      "nome": "Laço biscoitinho natalino",
+      "preco": "17,90",
+      "categorias": [
+        "Natal"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-biscoitinho-natalino/1793553910276-AKCVn",
+      "img": "img/k32.jpg"
+    },
+    {
+      "id": "k33",
+      "nome": "Laço chuva de pérolas",
+      "preco": "35,00",
+      "preco_antigo": "47,90",
+      "categorias": [
+        "Natal"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço com pérolas",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-chuva-de-perolas/1793553791829-AKCVn",
+      "img": "img/k33.jpg"
+    },
+    {
+      "id": "k34",
+      "nome": "Laço estrela de Belém",
+      "preco": "26,90",
+      "categorias": [
+        "Natal"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-estrela-de-belem/1793553552344-AKCVn",
+      "img": "img/k34.jpg"
+    },
+    {
+      "id": "k35",
+      "nome": "Laço estrelinhas de Belém",
+      "preco": "35,00",
+      "preco_antigo": "47,90",
+      "categorias": [
+        "Natal"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-estrelinhas-de-belem/1793553706137-AKCVn",
+      "img": "img/k35.jpg"
+    },
+    {
+      "id": "k36",
+      "nome": "Laço Natal meia rendado 0 a 12 meses",
+      "preco": "19,90",
+      "preco_antigo": "34,90",
+      "categorias": [
+        "Natal"
+      ],
+      "idades": [
+        "bebe"
+      ],
+      "modelo": "Faixa para bebê",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-natal-meia-rendado-0-a-12-meses/1793553951690-AKCVn",
+      "img": "img/k36.jpg"
+    },
+    {
+      "id": "k37",
+      "nome": "Par de laços Ano Novo/Natal",
+      "preco": "22,90",
+      "categorias": [
+        "Natal",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/par-de-lacos-ano-novo-natal/1794021699617-AKCVn",
+      "img": "img/k37.jpg"
+    },
+    {
+      "id": "k38",
+      "nome": "Par ursinho",
+      "preco": "37,89",
+      "categorias": [
+        "Natal",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/par-ursinho/1793553613091-AKCVn",
+      "img": "img/k38.jpg"
+    },
+    {
+      "id": "k01",
+      "nome": "Arco com laço removível",
+      "preco": "24,90",
+      "categorias": [
+        "Tiaras"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Tiara / arco 2 em 1",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/arco-com-laco-removivel/1792025758954-AKCVn",
+      "img": "img/k01.jpg"
+    },
+    {
+      "id": "k02",
+      "nome": "Kit Tiara Candy",
+      "preco": "39,90",
+      "categorias": [
+        "Tiaras",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Tiara / arco 2 em 1",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/kit-tiara-candy/1792712299256-AKCVn",
+      "img": "img/k02.jpg"
+    },
+    {
+      "id": "k03",
+      "nome": "Tiara 2 em 1",
+      "preco": "33,00",
+      "categorias": [
+        "Tiaras"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Tiara / arco 2 em 1",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/tiara-2-em-1/1794273978924-AKCVn",
+      "img": "img/k03.jpg"
+    },
+    {
+      "id": "k04",
+      "nome": "Tiara coração",
+      "preco": "18,64",
+      "categorias": [
+        "Tiaras"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Tiara / arco 2 em 1",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/tiara-coracao/1791670421418-AKCVn",
+      "img": "img/k04.jpg"
+    },
+    {
+      "id": "k05",
+      "nome": "Tiara pérola Candy",
+      "preco": "24,90",
+      "categorias": [
+        "Tiaras"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Tiara / arco 2 em 1",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/tiara-perola-candy/1792446670610-AKCVn",
+      "img": "img/k05.jpg"
+    },
+    {
+      "id": "k06",
+      "nome": "Laço baby borboleta meia",
+      "preco": "18,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "bebe"
+      ],
+      "modelo": "Faixa para bebê",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-baby-borboleta-meia/1792025441167-AKCVn",
+      "img": "img/k06.jpg"
+    },
+    {
+      "id": "k07",
+      "nome": "Laço baby coração meia",
+      "preco": "24,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "bebe"
+      ],
+      "modelo": "Faixa para bebê",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-baby-coracao-meia/1792025592010-AKCVn",
+      "img": "img/k07.jpg"
+    },
+    {
+      "id": "k08",
+      "nome": "Laço baby figurinha",
+      "preco": "14,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "bebe"
+      ],
+      "modelo": "Faixa para bebê",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-baby-figurinha/1792025469265-AKCVn",
+      "img": "img/k08.jpg"
+    },
+    {
+      "id": "k09",
+      "nome": "Laço baby meia minimalista",
+      "preco": "20,18",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "bebe"
+      ],
+      "modelo": "Faixa para bebê",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-baby-meia-minimialista/1792025509931-AKCVn",
+      "img": "img/k09.jpg"
+    },
+    {
+      "id": "k10",
+      "nome": "Linha baby laço meia branco ou rosa",
+      "preco": "26,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "bebe"
+      ],
+      "modelo": "Faixa para bebê",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/linha-baby-laco-meia-branco-ou-rosa/1792025398087-AKCVn",
+      "img": "img/k10.jpg"
+    },
+    {
+      "id": "k11",
+      "nome": "Laço abelhinha",
+      "preco": "24,00",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-abelinha/1790559166661-AKCVn",
+      "img": "img/k11.jpg"
+    },
+    {
+      "id": "k12",
+      "nome": "Laço Aurora creme",
+      "preco": "24,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-aurora-creme-copia/1791167065849-AKCVn",
+      "img": "img/k12.jpg"
+    },
+    {
+      "id": "k13",
+      "nome": "Laço Brilhosa",
+      "preco": "17,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço com brilho",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-brilhosa/1794261894641-AKCVn",
+      "img": "img/k13.jpg"
+    },
+    {
+      "id": "k14",
+      "nome": "Laço Eloah",
+      "preco": "8,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-eloah/1791241976858-AKCVn",
+      "img": "img/k14.jpg"
+    },
+    {
+      "id": "k15",
+      "nome": "Laço Filha da Promessa",
+      "preco": "14,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-filha-da-promessa/1791241842516-AKCVn",
+      "img": "img/k15.jpg"
+    },
+    {
+      "id": "k16",
+      "nome": "Laço florzinha com pérola",
+      "preco": "18,07",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço com pérolas",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-florzinha-com-perola/1792025663942-AKCVn",
+      "img": "img/k16.jpg"
+    },
+    {
+      "id": "k17",
+      "nome": "Laço Hadassa branco com strass",
+      "preco": "35,00",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço com brilho",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-hadassa-cor-branca-com-strass/1790561440079-AKCVn",
+      "img": "img/k17.jpg"
+    },
+    {
+      "id": "k18",
+      "nome": "Laço Hadassa midi",
+      "preco": "24,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-hadassa-midi/1792025253860-AKCVn",
+      "img": "img/k18.jpg"
+    },
+    {
+      "id": "k19",
+      "nome": "Laço Hadassa rosa",
+      "preco": "35,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço com pérolas",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-hadassa-rosa/1790559362575e77b93-AKCV",
+      "img": "img/k19.jpg"
+    },
+    {
+      "id": "k20",
+      "nome": "Laço kit Débora",
+      "preco": "55,90",
+      "categorias": [
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Kit de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-kit-debora/1790559230525-AKCVn",
+      "img": "img/k20.jpg"
+    },
+    {
+      "id": "k21",
+      "nome": "Laço preto no básico com coração",
+      "preco": "13,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço gravatinha",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-preto-no-basico-com-coracao/1792025826483-AKCVn",
+      "img": "img/k21.jpg"
+    },
+    {
+      "id": "k22",
+      "nome": "Laço Realeza",
+      "preco": "24,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço com pérolas",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-realeza/1794261779664-AKCVn",
+      "img": "img/k22.jpg"
+    },
+    {
+      "id": "k23",
+      "nome": "Laço vermelho",
+      "preco": "14,90",
+      "categorias": [
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/laco-vermelho/1794586978947-AKCVn",
+      "img": "img/k23.jpg"
+    },
+    {
+      "id": "k24",
+      "nome": "Par laço gravatinha duplo perolado",
+      "preco": "14,90",
+      "categorias": [
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço gravatinha",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/paco-gravatinha-duplo-perolado-par/1792025352290-AKCVn",
+      "img": "img/k24.jpg"
+    },
+    {
+      "id": "k25",
+      "nome": "Par Doramerinha",
+      "preco": "17,90",
+      "categorias": [
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/par-doramerinha/1792712336823-AKCVn",
+      "img": "img/k25.jpg"
+    },
+    {
+      "id": "k26",
+      "nome": "Par laço fofura",
+      "preco": "10,90",
+      "categorias": [
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/par-laco-fofura/1791389190472-AKCVn",
+      "img": "img/k26.jpg"
+    },
+    {
+      "id": "k27",
+      "nome": "Par laço vintage",
+      "preco": "24,90",
+      "categorias": [
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/par-laco-vintage/1792712372218-AKCVn",
+      "img": "img/k27.jpg"
+    },
+    {
+      "id": "k39",
+      "nome": "Expositor de laços",
+      "preco": "12,90",
+      "categorias": [
+        "Acessórios"
+      ],
+      "idades": [
+        "bebe",
+        "crianca"
+      ],
+      "modelo": "",
+      "link": "https://abbajumimos.kyte.site/pt-BR/p/expositor-de-lacos/1794435444651-AKCVn",
+      "img": "img/k39.jpg"
+    }
+  ]
+}
