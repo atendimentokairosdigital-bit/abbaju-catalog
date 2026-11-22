@@ -146,26 +146,23 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lilac)}
     <img src="img/logo.jpg" alt="AbbaJu Mimos">
     <h1>Painel do catálogo</h1>
     <p>Cadastre produtos, troque banners e cores. Ao publicar, o site atualiza sozinho em cerca de 1 minuto.</p>
-    <form id="loginForm" class="form" novalidate>
-      <div class="field">
-        <label for="token">Chave de acesso do GitHub</label>
-        <input type="password" id="token" placeholder="github_pat_…" autocomplete="off">
-        <span class="hint">A chave fica só neste navegador e é usada apenas para salvar no GitHub.</span>
-      </div>
-      <label class="check"><input type="checkbox" id="remember" checked> Lembrar neste computador</label>
+    <div id="loginLoading" class="hint" style="text-align:center">Carregando…</div>
+    <form id="loginForm" class="form" novalidate hidden>
+      <div class="field"><label for="lUser">Usuário</label><input type="text" id="lUser" autocomplete="username" autocapitalize="none" spellcheck="false"></div>
+      <div class="field"><label for="lPass">Senha</label><input type="password" id="lPass" autocomplete="current-password"></div>
       <div class="err" id="loginErr"></div>
       <button class="btn btn-gold" type="submit" id="loginBtn">Entrar no painel</button>
+      <p class="hint" style="text-align:center">Esqueceu a senha? Peça para o acesso principal criar uma nova senha para você.</p>
     </form>
-    <details class="steps">
-      <summary>Como criar a chave (só uma vez)</summary>
-      <ol>
-        <li>Entre no GitHub com a conta <b>atendimentokairosdigital-bit</b> e abra <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Criar token (fine-grained)</a>.</li>
-        <li><b>Token name:</b> Painel AbbaJu · <b>Expiration:</b> escolha um prazo (ex.: 1 ano).</li>
-        <li><b>Repository access:</b> “Only select repositories” → <b>abbaju-catalog</b>.</li>
-        <li><b>Permissions → Repository permissions → Contents:</b> “Read and write”.</li>
-        <li>Clique em <b>Generate token</b>, copie a chave e cole aqui.</li>
-      </ol>
-    </details>
+    <form id="setupForm" class="form" novalidate hidden>
+      <div class="steps" style="margin:0"><b>Primeiro acesso 🎀</b><br>Crie o acesso principal do painel. Com ele você entra, publica e pode criar outros acessos depois.</div>
+      <div class="field"><label for="sName">Seu nome</label><input type="text" id="sName" maxlength="60" placeholder="Ex.: Joyce"></div>
+      <div class="field"><label for="sUser">Usuário</label><input type="text" id="sUser" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="Ex.: joyce"><span class="hint">Letras e números, sem espaço.</span></div>
+      <div class="field"><label for="sPass">Senha</label><input type="password" id="sPass" autocomplete="new-password"><span class="hint">Pelo menos 8 caracteres.</span></div>
+      <div class="field"><label for="sPass2">Repita a senha</label><input type="password" id="sPass2" autocomplete="new-password"></div>
+      <div class="err" id="setupErr"></div>
+      <button class="btn btn-gold" type="submit" id="setupBtn">Criar acesso e entrar</button>
+    </form>
   </div>
 </section>
 
@@ -176,6 +173,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lilac)}
       <a class="brand" href="./" target="_blank" rel="noopener"><img src="img/logo.jpg" alt=""><span>AbbaJu Mimos</span><small>painel</small></a>
       <div class="top-actions">
         <span class="pending" id="pending" hidden></span>
+        <span class="hint" id="whoami"></span>
         <a class="btn btn-ghost btn-sm" href="./" target="_blank" rel="noopener">Ver site ↗</a>
         <button class="btn btn-gold" id="publishBtn" disabled>Publicar no site</button>
         <button class="btn btn-ghost btn-sm" id="logout">Sair</button>
@@ -188,6 +186,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lilac)}
       <button class="tab active" data-tab="produtos">🛍️ Produtos <span id="pCount"></span></button>
       <button class="tab" data-tab="banners">🖼️ Banners</button>
       <button class="tab" data-tab="cores">🎨 Cores do personalizado</button>
+      <button class="tab" data-tab="acessos">👤 Acessos</button>
     </nav>
 
     <section class="panel" id="tab-produtos">
@@ -218,6 +217,34 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lilac)}
         <button class="btn btn-primary" type="submit">＋ Adicionar cor</button>
         <span class="ferr" id="cErr"></span>
       </form>
+    </section>
+
+    <section class="panel" id="tab-acessos" hidden>
+      <h2>Acessos</h2>
+      <p class="sub">Quem pode entrar no painel.</p>
+      <div class="bgroup" id="usersBox" hidden>
+        <h3>Pessoas com acesso</h3>
+        <div class="plist" id="ulist" style="margin:1rem 0"></div>
+        <form class="form" id="uForm" novalidate>
+          <b>Criar novo acesso</b>
+          <div class="row">
+            <div class="field"><label for="uName">Nome</label><input type="text" id="uName" maxlength="60"></div>
+            <div class="field"><label for="uUser">Usuário</label><input type="text" id="uUser" autocapitalize="none" spellcheck="false" placeholder="sem espaço"></div>
+          </div>
+          <div class="field"><label for="uPass">Senha inicial <span class="hint">(mínimo 8 caracteres; passe para a pessoa e peça para ela trocar)</span></label><input type="text" id="uPass" autocomplete="off"></div>
+          <div class="ferr" id="uErr"></div>
+          <div><button class="btn btn-primary" type="submit">＋ Criar acesso</button></div>
+        </form>
+      </div>
+      <div class="bgroup">
+        <h3>Trocar minha senha</h3>
+        <form class="form" id="pwForm" novalidate style="margin-top:1rem;max-width:460px">
+          <div class="field"><label for="pwOld">Senha atual</label><input type="password" id="pwOld" autocomplete="current-password"></div>
+          <div class="field"><label for="pwNew">Nova senha <span class="hint">(mínimo 8 caracteres)</span></label><input type="password" id="pwNew" autocomplete="new-password"></div>
+          <div class="ferr" id="pwErr"></div>
+          <div><button class="btn btn-primary" type="submit">Salvar nova senha</button></div>
+        </form>
+      </div>
     </section>
   </main>
 </div>
@@ -273,7 +300,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lilac)}
 
 <script>
 /* ===== Configuração ===== */
-const GH = {owner:"atendimentokairosdigital-bit", repo:"abbaju-catalog", branch:"main"};
 const CATS = ["Laços","Tiaras","Pares e kits","Acessórios"];
 const MODELS = ["Laço gravatinha","Laço tradicional","Laço com pérolas","Laço com brilho","Faixa para bebê","Tiara / arco 2 em 1","Par de laços","Kit de laços"];
 const SLOTS = {principal:["Foto grande (arco)","Foto pequena de cima","Foto pequena de baixo"], natal:["Círculo da esquerda","Círculo do centro (maior)","Círculo da direita"]};
@@ -282,45 +308,58 @@ const PROTECTED = new Set(["img/logo.jpg"]);
 const $ = s => document.querySelector(s);
 const esc = s => String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 const recentImgs = new Map();
-let TOKEN = "", data = null, original = "", originalImgs = new Set(), pendingImgs = new Map(), editingId = null, pmNewImg = null, bannerTarget = null;
+let ME = null, data = null, original = "", originalImgs = new Set(), pendingImgs = new Map(), editingId = null, pmNewImg = null, bannerTarget = null;
 
-/* ===== GitHub API ===== */
-async function gh(path, opts={}){
-  const r = await fetch(`https://api.github.com/repos/${GH.owner}/${GH.repo}${path}`, {
-    ...opts,
-    headers:{"Authorization":`Bearer ${TOKEN}`,"Accept":opts.raw?"application/vnd.github.raw":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28",...(opts.body?{"Content-Type":"application/json"}:{})},
-    cache:"no-store"
-  });
-  if(!r.ok){const e=new Error(`GitHub ${r.status}`);e.status=r.status;try{e.detail=(await r.json()).message}catch(_){};throw e}
-  return opts.raw ? r.text() : (r.status===204 ? null : r.json());
-}
-function ghError(e){
-  if(e.status===401) return "Chave inválida ou expirada. Crie uma nova chave no GitHub.";
-  if(e.status===403||e.status===404) return "Essa chave não tem acesso ao repositório abbaju-catalog com permissão “Contents: Read and write”.";
-  if(e.status===409||e.status===422) return "O site foi alterado ao mesmo tempo por outro lugar. Tente publicar de novo.";
-  return "Não foi possível falar com o GitHub agora. Verifique a internet e tente de novo."+(e.status?` (erro ${e.status})`:"");
+/* ===== API do site ===== */
+async function api(path, opts={}){
+  let r;
+  try{ r = await fetch("/api/"+path,{method:opts.method||"GET",credentials:"same-origin",cache:"no-store",headers:opts.body?{"content-type":"application/json"}:{},body:opts.body?JSON.stringify(opts.body):undefined}); }
+  catch(_){ const e=new Error("Sem conexão com a internet. Verifique e tente de novo.");e.status=0;throw e }
+  const txt = await r.text(); let d=null; try{d=JSON.parse(txt)}catch(_){}
+  if(!r.ok){ const e=new Error((d&&d.erro)||`Erro ${r.status}. Tente de novo.`); e.status=r.status;
+    if(r.status===401 && ME && path!=="login" && path!=="senha") toast("Sua sessão expirou. Saia e entre de novo (suas alterações continuam aqui).");
+    throw e }
+  return opts.raw ? txt : d;
 }
 
 /* ===== Login ===== */
-async function login(tok, remember){
-  TOKEN = tok.trim();
-  $("#loginErr").textContent=""; $("#loginBtn").disabled=true; $("#loginBtn").textContent="Entrando…";
-  try{
-    const repo = await gh("");
-    if(!repo.permissions || !repo.permissions.push){const e=new Error();e.status=403;throw e}
-    await loadData();
-    try{(remember?localStorage:sessionStorage).setItem("abbaju_gh",TOKEN)}catch(_){}
-    $("#login").hidden=true; $("#app").hidden=false; renderAll();
-  }catch(e){
-    $("#loginErr").textContent = ghError(e);
-    try{localStorage.removeItem("abbaju_gh");sessionStorage.removeItem("abbaju_gh")}catch(_){}
-  }finally{$("#loginBtn").disabled=false;$("#loginBtn").textContent="Entrar no painel"}
+async function enterApp(user){
+  ME=user; await loadData();
+  $("#login").hidden=true; $("#app").hidden=false;
+  $("#whoami").textContent="Olá, "+(ME.nome||ME.usuario);
+  $("#usersBox").hidden = ME.papel!=="dona";
+  renderAll(); if(ME.papel==="dona") loadUsers();
 }
-$("#loginForm").addEventListener("submit",e=>{e.preventDefault();const t=$("#token").value;if(!t.trim()){$("#loginErr").textContent="Cole a chave de acesso.";return}login(t,$("#remember").checked)});
-$("#logout").addEventListener("click",()=>{if(isDirty()&&!confirm("Você tem alterações não publicadas. Sair mesmo assim?"))return;try{localStorage.removeItem("abbaju_gh");sessionStorage.removeItem("abbaju_gh")}catch(_){}location.reload()});
+async function boot(){
+  try{
+    const r=await api("me");
+    $("#loginLoading").hidden=true;
+    if(r.usuario) return await enterApp(r.usuario);
+    (r.primeiroAcesso?$("#setupForm"):$("#loginForm")).hidden=false;
+  }catch(e){ $("#loginLoading").hidden=false; $("#loginLoading").textContent=e.message }
+}
+$("#loginForm").addEventListener("submit",async e=>{e.preventDefault();
+  const u=$("#lUser").value.trim(),p=$("#lPass").value; $("#loginErr").textContent="";
+  if(!u||!p) return $("#loginErr").textContent="Preencha usuário e senha.";
+  $("#loginBtn").disabled=true;$("#loginBtn").textContent="Entrando…";
+  try{const r=await api("login",{method:"POST",body:{usuario:u,senha:p}});$("#lPass").value="";await enterApp(r.usuario)}
+  catch(err){$("#loginErr").textContent=err.message}
+  finally{$("#loginBtn").disabled=false;$("#loginBtn").textContent="Entrar no painel"}
+});
+$("#setupForm").addEventListener("submit",async e=>{e.preventDefault();
+  const n=$("#sName").value.trim(),u=$("#sUser").value.trim(),p=$("#sPass").value,p2=$("#sPass2").value; $("#setupErr").textContent="";
+  if(!u||!p) return $("#setupErr").textContent="Preencha usuário e senha.";
+  if(p.length<8) return $("#setupErr").textContent="A senha precisa ter pelo menos 8 caracteres.";
+  if(p!==p2) return $("#setupErr").textContent="As senhas não são iguais.";
+  $("#setupBtn").disabled=true;
+  try{const r=await api("setup",{method:"POST",body:{nome:n,usuario:u,senha:p}});await enterApp(r.usuario);toast("Acesso criado! Guarde seu usuário e senha.")}
+  catch(err){$("#setupErr").textContent=err.message}
+  finally{$("#setupBtn").disabled=false}
+});
+$("#logout").addEventListener("click",async()=>{if(isDirty()&&!confirm("Você tem alterações não publicadas. Sair mesmo assim?"))return;try{await api("logout",{method:"POST",body:{}})}catch(_){}original=JSON.stringify(data);location.reload()});
 
 async function loadData(){
-  const txt = await gh(`/contents/data.json?ref=${GH.branch}&t=${Date.now()}`,{raw:true});
+  const txt = await api("dados",{raw:true});
   data = JSON.parse(txt);
   data.banners = data.banners||{}; data.banners.principal=data.banners.principal||[]; data.banners.natal=data.banners.natal||[];
   data.cores = data.cores||[]; data.produtos = data.produtos||[];
@@ -333,7 +372,7 @@ function imgSrc(path){return pendingImgs.has(path)?pendingImgs.get(path).url:rec
 /* ===== Abas ===== */
 document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
   document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===t));
-  ["produtos","banners","cores"].forEach(k=>$("#tab-"+k).hidden=k!==t.dataset.tab);
+  ["produtos","banners","cores","acessos"].forEach(k=>$("#tab-"+k).hidden=k!==t.dataset.tab);
 }));
 
 function renderAll(){renderProducts();renderBanners();renderColors();refreshPending()}
@@ -494,43 +533,48 @@ async function publish(){
   const step=t=>box.innerHTML=`<div class="spin"></div><h2>Publicando…</h2><p>${t}</p>`;
   ov.hidden=false;
   try{
-    data.atualizado_em=new Date().toISOString();
     const nowImgs=usedImgs(data);
     const toUpload=[...pendingImgs.entries()].filter(([p])=>nowImgs.has(p));
-    const toDelete=[...originalImgs].filter(p=>!nowImgs.has(p)&&!PROTECTED.has(p)&&p.startsWith("img/"));
-    step("Preparando as alterações…");
-    const ref=await gh(`/git/ref/heads/${GH.branch}`);
-    const head=ref.object.sha;
-    const commit=await gh(`/git/commits/${head}`);
-    const tree=[{path:"data.json",mode:"100644",type:"blob",content:JSON.stringify(data,null,2)+"\n"}];
-    let n=0;
-    for(const [path,im] of toUpload){
-      step(`Enviando fotos (${++n} de ${toUpload.length})…`);
-      const blob=await gh(`/git/blobs`,{method:"POST",body:JSON.stringify({content:im.b64,encoding:"base64"})});
-      tree.push({path,mode:"100644",type:"blob",sha:blob.sha});
-    }
-    if(toDelete.length){
-      const cur=await gh(`/git/trees/${commit.tree.sha}?recursive=1`);
-      const exists=new Set(cur.tree.map(t=>t.path));
-      toDelete.filter(p=>exists.has(p)).forEach(path=>tree.push({path,mode:"100644",type:"blob",sha:null}));
-    }
-    step("Salvando no GitHub…");
-    const nt=await gh(`/git/trees`,{method:"POST",body:JSON.stringify({base_tree:commit.tree.sha,tree})});
-    const nc=await gh(`/git/commits`,{method:"POST",body:JSON.stringify({message:`Painel: atualiza catálogo (${new Date().toLocaleString("pt-BR")})`,tree:nt.sha,parents:[head]})});
-    await gh(`/git/refs/heads/${GH.branch}`,{method:"PATCH",body:JSON.stringify({sha:nc.sha})});
+    step(toUpload.length?`Enviando ${toUpload.length} foto(s) e salvando…`:"Salvando…");
+    await api("publicar",{method:"POST",body:{dados:data,imagens:toUpload.map(([path,im])=>({path,b64:im.b64}))}});
     original=JSON.stringify(data); originalImgs=nowImgs; pendingImgs.forEach((im,p)=>recentImgs.set(p,im.url)); pendingImgs.clear();
     box.innerHTML=`<h2>Publicado! 🎀</h2><p>O site atualiza sozinho em cerca de 1 minuto.</p><div style="display:flex;gap:.6rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap"><a class="btn btn-primary" href="./" target="_blank" rel="noopener">Ver o site ↗</a><button class="btn btn-ghost" id="ovClose">Continuar editando</button></div>`;
     $("#ovClose").onclick=()=>ov.hidden=true;
     renderAll();
   }catch(e){
-    box.innerHTML=`<h2>Não deu certo 😕</h2><p>${esc(ghError(e))}</p><p class="hint" style="margin-top:.6rem">Suas alterações continuam aqui no painel.</p><div style="margin-top:1.2rem"><button class="btn btn-gold" id="ovClose">Fechar</button></div>`;
+    box.innerHTML=`<h2>Não deu certo 😕</h2><p>${esc(e.message)}</p><p class="hint" style="margin-top:.6rem">Suas alterações continuam aqui no painel.</p><div style="margin-top:1.2rem"><button class="btn btn-gold" id="ovClose">Fechar</button></div>`;
     $("#ovClose").onclick=()=>ov.hidden=true;
   }
 }
 addEventListener("beforeunload",e=>{if(isDirty()){e.preventDefault();e.returnValue=""}});
 
+/* ===== Acessos ===== */
+async function loadUsers(){
+  try{const r=await api("usuarios");
+    $("#ulist").innerHTML=r.usuarios.map(u=>`<div class="pitem" style="grid-template-columns:1fr auto">
+      <div><h3>${esc(u.nome)} <span class="tag">${u.papel==="dona"?"acesso principal":"editora"}</span></h3><div class="hint">usuário: <b>${esc(u.usuario)}</b></div></div>
+      <div class="pact">${u.usuario===ME.usuario?'<span class="hint">você</span>':`<button class="btn btn-ghost btn-sm" data-ureset="${esc(u.usuario)}">🔑 Nova senha</button>${u.papel==="dona"?"":`<button class="btn btn-danger btn-sm" data-udel="${esc(u.usuario)}">🗑️</button>`}`}</div></div>`).join("");
+  }catch(e){$("#ulist").innerHTML=`<div class="empty">${esc(e.message)}</div>`}
+}
+$("#ulist").addEventListener("click",async e=>{
+  const d=e.target.closest("[data-udel]"), r=e.target.closest("[data-ureset]");
+  try{
+    if(d){if(!confirm(`Remover o acesso de “${d.dataset.udel}”?`))return;await api("usuarios/"+encodeURIComponent(d.dataset.udel),{method:"DELETE"});toast("Acesso removido.");loadUsers()}
+    if(r){const nova=prompt(`Nova senha para “${r.dataset.ureset}” (mínimo 8 caracteres):`);if(!nova)return;await api("senha-usuario",{method:"POST",body:{usuario:r.dataset.ureset,senha:nova}});toast("Senha alterada. Passe a nova senha para a pessoa.")}
+  }catch(err){toast(err.message)}
+});
+$("#uForm").addEventListener("submit",async e=>{e.preventDefault();$("#uErr").textContent="";
+  try{await api("usuarios",{method:"POST",body:{nome:$("#uName").value,usuario:$("#uUser").value,senha:$("#uPass").value}});
+    ["#uName","#uUser","#uPass"].forEach(i=>$(i).value="");toast("Acesso criado!");loadUsers()}
+  catch(err){$("#uErr").textContent=err.message}
+});
+$("#pwForm").addEventListener("submit",async e=>{e.preventDefault();$("#pwErr").textContent="";
+  try{await api("senha",{method:"POST",body:{atual:$("#pwOld").value,nova:$("#pwNew").value}});$("#pwOld").value="";$("#pwNew").value="";toast("Senha alterada!")}
+  catch(err){$("#pwErr").textContent=err.message}
+});
+
 /* ===== Início ===== */
-(function(){let t="";try{t=localStorage.getItem("abbaju_gh")||sessionStorage.getItem("abbaju_gh")||""}catch(_){}if(t){$("#token").value=t;login(t,!!localStorage.getItem("abbaju_gh"))}})();
+boot();
 </script>
 </body>
 </html>

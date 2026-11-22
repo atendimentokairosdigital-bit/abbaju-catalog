@@ -1,7 +1,15 @@
 {
   "name": "abbaju-catalog",
+  "main": "worker.js",
   "compatibility_date": "2025-09-01",
   "assets": {
-    "directory": "."
-  }
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  // Banco de usuários do painel (criado automaticamente no deploy)
+  "kv_namespaces": [{ "binding": "USERS" }],
+  // Mantém variáveis/segredos configurados no painel da Cloudflare (ex.: GITHUB_TOKEN)
+  "keep_vars": true,
+  "observability": { "enabled": true }
 }
