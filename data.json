@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "2026-11-22T19:57:25.002Z",
+  "atualizado_em": "2026-11-23T14:24:34.694Z",
   "banners": {
     "principal": [
       {
@@ -129,6 +129,67 @@
     }
   ],
   "produtos": [
+    {
+      "id": "pmwtcxabr",
+      "nome": "Par de Laços Estrelinha Natalinja",
+      "preco": "17,90",
+      "categorias": [
+        "Natal",
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "",
+      "img": "img/pmwtcxabr-mwtcxabr.jpg"
+    },
+    {
+      "id": "pmwtcwcjd",
+      "nome": "Kit 3 pares de laços pétala",
+      "preco": "35,90",
+      "categorias": [
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "",
+      "img": "img/pmwtcwcjd-mwtcwcjd.jpg"
+    },
+    {
+      "id": "pmwtcvjb3",
+      "nome": "kit Candy 3 pares",
+      "preco": "35,90",
+      "categorias": [
+        "Laços",
+        "Pares e kits"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Laço tradicional",
+      "link": "",
+      "img": "img/pmwtcvjb3-mwtcvjb4.jpg"
+    },
+    {
+      "id": "pmwtcuhrg",
+      "nome": "Par Brilho de Natal",
+      "preco": "17,90",
+      "categorias": [
+        "Natal",
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Par de laços",
+      "link": "",
+      "img": "img/pmwtcuhrg-mwtcuhrg.jpg"
+    },
     {
       "id": "k28",
       "nome": "Arco 2 em 1 ursinho Natal",
@@ -693,5 +754,6 @@
       "link": "https://abbajumimos.kyte.site/pt-BR/p/expositor-de-lacos/1794435444651-AKCVn",
       "img": "img/k39.jpg"
     }
-  ]
+  ],
+  "atualizado_por": "joyce"
 }
