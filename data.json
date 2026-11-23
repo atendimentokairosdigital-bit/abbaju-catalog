@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "2026-11-23T14:24:34.694Z",
+  "atualizado_em": "2026-11-23T14:53:34.747Z",
   "banners": {
     "principal": [
       {
@@ -7,8 +7,8 @@
         "alt": "Menina usando laço Hadassa"
       },
       {
-        "img": "img/k20.jpg",
-        "alt": "Laços vermelhos do kit Débora"
+        "img": "img/banner-principal-1-mwtdwp9g.jpg",
+        "alt": ""
       },
       {
         "img": "img/k26.jpg",
@@ -25,7 +25,7 @@
         "alt": ""
       },
       {
-        "img": "img/k34.jpg",
+        "img": "img/banner-natal-2-mwtdx1wp.jpg",
         "alt": ""
       }
     ]
@@ -40,10 +40,6 @@
       "hex": "#F7CFDA"
     },
     {
-      "nome": "Pink",
-      "hex": "#D83C7A"
-    },
-    {
       "nome": "Vermelho",
       "hex": "#C8232F"
     },
@@ -52,52 +48,12 @@
       "hex": "#C3A6E0"
     },
     {
-      "nome": "Lavanda",
-      "hex": "#D9CBF0"
-    },
-    {
-      "nome": "Roxo",
-      "hex": "#7E4FB5"
-    },
-    {
-      "nome": "Uva",
-      "hex": "#5B2A7A"
-    },
-    {
       "nome": "Azul bebê",
       "hex": "#A9CCEB"
     },
     {
-      "nome": "Azul céu",
-      "hex": "#6FB3E0"
-    },
-    {
-      "nome": "Azul turquesa",
-      "hex": "#2FB5B8"
-    },
-    {
-      "nome": "Azul royal",
-      "hex": "#2F5BB7"
-    },
-    {
-      "nome": "Azul marinho",
-      "hex": "#1F2E5A"
-    },
-    {
       "nome": "Verde água",
       "hex": "#9ED9C3"
-    },
-    {
-      "nome": "Verde menta",
-      "hex": "#B5E3C4"
-    },
-    {
-      "nome": "Verde bandeira",
-      "hex": "#2E8B57"
-    },
-    {
-      "nome": "Verde oliva",
-      "hex": "#5E7A3A"
     },
     {
       "nome": "Verde musgo",
@@ -108,20 +64,8 @@
       "hex": "#F5CD3D"
     },
     {
-      "nome": "Salmão",
-      "hex": "#F8B497"
-    },
-    {
-      "nome": "Nude",
-      "hex": "#E8C9B0"
-    },
-    {
       "nome": "Off-white",
       "hex": "#F6EFE3"
-    },
-    {
-      "nome": "Dourado",
-      "hex": "#CFA75A"
     },
     {
       "nome": "Preto",
