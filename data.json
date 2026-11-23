@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "2026-11-23T14:53:34.747Z",
+  "atualizado_em": "2026-11-23T16:44:33.610Z",
   "banners": {
     "principal": [
       {
@@ -137,7 +137,7 @@
     {
       "id": "k28",
       "nome": "Arco 2 em 1 ursinho Natal",
-      "preco": "33,17",
+      "preco": "35,90",
       "preco_antigo": "55,00",
       "categorias": [
         "Natal",
@@ -154,10 +154,11 @@
       "id": "k29",
       "nome": "Arco vermelho ursinho Natal",
       "preco": "33,17",
-      "preco_antigo": "55,90",
+      "preco_antigo": "35,90",
       "categorias": [
         "Natal",
-        "Tiaras"
+        "Tiaras",
+        "Pares e kits"
       ],
       "idades": [
         "crianca"
