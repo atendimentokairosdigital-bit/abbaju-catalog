@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "2026-11-23T16:44:33.610Z",
+  "atualizado_em": "2026-11-26T15:27:24.371Z",
   "banners": {
     "principal": [
       {
@@ -73,6 +73,22 @@
     }
   ],
   "produtos": [
+    {
+      "id": "pmwxphmws",
+      "nome": "Kit presente 50 peças coração acrílico",
+      "preco": "41,90",
+      "preco_antigo": "54,90",
+      "categorias": [
+        "Natal",
+        "Laços"
+      ],
+      "idades": [
+        "crianca"
+      ],
+      "modelo": "Kit de laços",
+      "link": "",
+      "img": "img/pmwxphmws-mwxphmwt.jpg"
+    },
     {
       "id": "pmwtcxabr",
       "nome": "Par de Laços Estrelinha Natalinja",
