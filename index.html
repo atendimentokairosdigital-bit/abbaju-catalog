@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#7E5FA6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Nunito:wght@400;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Nunito:wght@400;600;700;800&family=Parisienne&family=Fraunces:wght@700&family=Manrope:wght@600&display=swap" rel="stylesheet">
 <style>
 /* Identidade AbbaJu Mimos: dourado + lilás sobre creme */
 :root{
@@ -255,6 +255,13 @@ details p{color:var(--ink-soft);margin-top:.6rem}
 .band .btn-ghost{border-color:#fff}
 footer{padding:3rem 0 6.5rem;text-align:center;color:var(--ink-soft);font-size:.9rem}
 footer img{width:120px;margin:0 auto .8rem;border-radius:50%}
+.dev-by{display:flex;align-items:center;justify-content:center;gap:.7rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.82rem;font-weight:700;color:var(--ink-soft);flex-wrap:wrap}
+.kairos{display:inline-flex;align-items:center;gap:.6rem;background:#2B0713;border-radius:999px;padding:.45rem 1rem .45rem .8rem;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 8px 18px -10px rgba(43,7,19,.7)}
+.kairos:hover{transform:translateY(-2px);box-shadow:0 12px 22px -10px rgba(43,7,19,.8)}
+.kairos svg{width:40px;height:23px;display:block;flex:none}
+.k-word{display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+.k-word b{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.05rem;color:#F2E6DC;letter-spacing:-.01em}
+.k-word i{font-family:'Manrope',sans-serif;font-style:normal;font-weight:600;font-size:.42rem;letter-spacing:.55em;margin-right:-.55em;color:#F2E6DC;margin-top:2px}
 .mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:.5rem;padding:.7rem;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
 .mbar .btn{flex:1;padding:.8rem .6rem;font-size:.9rem}
 @media(max-width:780px){.mbar{display:flex}}
@@ -442,7 +449,7 @@ body.lock{overflow:hidden}
 .wa-float:hover{transform:scale(1.08)}
 .wa-tip{position:absolute;right:72px;white-space:nowrap;background:#fff;color:var(--ink);font-weight:800;font-size:.85rem;padding:.5rem .8rem;border-radius:12px;box-shadow:var(--shadow);opacity:0;transform:translateX(8px);transition:.25s;pointer-events:none}
 .wa-float:hover .wa-tip{opacity:1;transform:none}
-@media(max-width:780px){.wa-float{bottom:84px;right:14px;width:54px;height:54px}}
+@media(max-width:780px){.wa-float{bottom:84px;right:14px;width:54px;height:54px}footer{padding-bottom:10rem}}
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.title .w,.reveal{opacity:1;transform:none;filter:none}.swash path{stroke-dashoffset:0}}
 </style>
@@ -699,6 +706,12 @@ body.lock{overflow:hidden}
 <footer>
   <img src="img/logo.jpg" alt="AbbaJu Mimos · Papelaria criativa &amp; laços">
   <p>Pedidos e encomendas pelo WhatsApp (21) 96594-7720</p>
+  <div class="dev-by">
+    <span>Desenvolvido por</span>
+    <a class="kairos" href="https://weathered-star-b3fe.atendimento-kairosdigital.workers.dev/" target="_blank" rel="noopener" aria-label="Desenvolvido por Kairós Digital">
+      <svg viewBox="0 0 250 140" aria-hidden="true"><polygon points="82.6,30 112.6,30 100.0,58 70.0,58" fill="#F2E6DC"/><polygon points="40.0,58 70.0,58 57.4,86 27.4,86" fill="#F2E6DC"/><polygon points="57.4,86 87.4,86 74.8,114 44.8,114" fill="#E6BA05"/><polygon points="-2.6,86 27.4,86 14.8,114 -15.2,114" fill="#F2E6DC" fill-opacity="0.45"/><polygon points="96,126 124,126 174.4,14 146.4,14" fill="#F2E6DC"/><polygon points="143,84 212,14 246,14 150,112" fill="#F2E6DC"/><polygon points="160,100 176,84 240,126 206,126" fill="#F2E6DC"/></svg><span class="k-word"><b>Kairós</b><i>DIGITAL</i></span>
+    </a>
+  </div>
 </footer>
 
 <div class="modal" id="buyModal" hidden>
